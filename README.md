@@ -3,7 +3,9 @@
 웹퍼블리싱(html, css, js, less) 를 위한 환경설정을 위해서 작성된 페이지 입니다.
 
 /publishing/src/ 밑으로 작성된 bootstrap(js, less), less, js 는 Gruntfile.js에 의해서
-/publishing/js/, 
+
+/publishing/js/,
+ 
 /publishing/css/ 으로 자동으로 변환되어 css,js 형태로 삽입됩니다.
 
 
