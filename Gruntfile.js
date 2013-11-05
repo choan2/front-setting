@@ -1,0 +1,88 @@
+module.exports = function(grunt) {
+	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+		path: {
+			js_src : "src/",
+			js_dist : "js/",
+			
+			css_src : "src/",
+			css_dist : "css/",
+		},
+		meta: {
+
+		},
+		
+		jshint: {},
+		lint: {},
+		qunit: {},
+
+		concat: {
+			ui: {
+				src: ['<%= path.js_src %>js/*.js'],
+				dest: '<%= path.js_dist %><%= pkg.name %>.js'
+			},
+			bootstrapJS: {
+				src: ['<%= path.js_src %>bootstrap/js/*.js'],
+				dest: '<%= path.js_dist %>bootstrap.js'
+			}
+		},
+
+		less: {
+			bootstrap: {
+				files: {
+					"<%= path.css_dist %>bootstrap.css": "<%= path.css_src %>bootstrap/less/bootstrap.less"
+				}
+			},
+			ui: {
+				files: {
+					"<%= path.css_dist %><%= pkg.name %>.css": "<%= path.css_src %>less/*.less"
+				}
+			}
+		},
+
+		uglify: {
+			dist: {
+				files: {
+					'<%= path.js_dist %>bootstrap.min.js': ['<%= path.js_dist %>bootstrap.js'],
+					'<%= path.js_dist %><%= pkg.name %>.min.js': ['<%= concat.ui.dest %>']
+				}
+			}
+		},
+
+		cssmin : {
+			minify: {
+				expand: true,
+				cwd: '<%= path.css_dist %>',
+				src: ['*.css', '!*.min.css'],
+				dest: '<%= path.css_dist %>',
+				ext: '.min.css'
+			}
+		},
+				
+		watch: {
+			less:{
+				files: ['<%= path.css_src %>**/*.less'],
+				tasks: ['less', 'cssmin']
+			},
+			js:{
+				files: ['<%= path.js_src %>/**/*.js'],
+				tasks: ['concat', 'uglify']
+			}
+		}
+	});
+
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-qunit');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-less');
+
+	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'watch']);
+};
+
+
+
+
+

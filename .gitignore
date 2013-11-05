@@ -1,0 +1,8 @@
+.project
+
+node_modules
+
+js/vender/*
+
+src/bootstrap/*
+src/library/*
