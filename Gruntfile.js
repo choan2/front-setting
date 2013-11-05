@@ -22,7 +22,20 @@ module.exports = function(grunt) {
 				dest: '<%= path.js_dist %><%= pkg.name %>.js'
 			},
 			bootstrapJS: {
-				src: ['<%= path.js_src %>bootstrap/js/*.js'],
+				src: [
+					'<%= path.js_src %>bootstrap/js/transition.js',
+					'<%= path.js_src %>bootstrap/js/alert.js',
+					'<%= path.js_src %>bootstrap/js/button.js',
+					'<%= path.js_src %>bootstrap/js/carousel.js',
+					'<%= path.js_src %>bootstrap/js/collapse.js',
+					'<%= path.js_src %>bootstrap/js/dropdown.js',
+					'<%= path.js_src %>bootstrap/js/modal.js',
+					'<%= path.js_src %>bootstrap/js/tooltip.js',
+					'<%= path.js_src %>bootstrap/js/popover.js',
+					'<%= path.js_src %>bootstrap/js/scrollspy.js',
+					'<%= path.js_src %>bootstrap/js/tab.js',
+					'<%= path.js_src %>bootstrap/js/affix.js'
+		        ],
 				dest: '<%= path.js_dist %>bootstrap.js'
 			}
 		},
