@@ -6,12 +6,12 @@
 ```
 publishing/
 ├── js/
-│   ├── app.js
-│   ├── app.min.js
+│   ├── ui.js
+│   ├── ui.min.js
 │   ├── bootstrap.js
 │   ├── bootstrap.min.js
 │   ├── plugin/
-│   └── vender/ (bower에 의해서 설치되는 파일(수정x))
+│   └── vender/ (bower에 의해서 설치되는 파일(수정x : 수정시 publishing/js/ 밑으로 이동))
 │        ├── modernizr/
 │        ├── requirejs/
 │        ├── jquery/
@@ -38,13 +38,15 @@ publishing/
 │
 ├── html/ (html 페이지 작성)
 │
-└── status/ (현황판)
+├── status/ (현황판)
+│
+└── guide/ (가이드)
 ```
 
 ## 요구사항
-* node.js설치
-* bower 설치
-* grunt 설치
+1. node.js설치 : http://nodejs.org/
+2. bower 설치  : cmd 창에서 설치 npm install -g bower 
+3. grunt 설치  : cmd 창에서 설치 npm install -g grunt-cli
 
 ## 적용하기
 1. git clone git@github.com:ace4gi/setting.git 실행
