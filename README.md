@@ -44,6 +44,7 @@ publishing/
 ├── images/
 │
 ├── html/ (html 페이지 작성)
+│   └── index.html
 │
 ├── status/ (현황판)
 │

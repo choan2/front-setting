@@ -1,9 +1,11 @@
 .project
 .settings/
 
-node_modules
+# node_modules/ 디렉토리에 있는 모든 파일은 무시한다.
+node_modules/
 
-js/vender/*
+# js/vender/ 디렉토리에 있는 모든 파일은 무시한다.
+js/vender/
 
-src/bootstrap/*
-src/library/*
+src/bootstrap/
+src/library/
