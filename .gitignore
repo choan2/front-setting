@@ -6,7 +6,7 @@ node_modules/
 js/vender/
 
 src/bootstrap/less/*.less
-src/bootstrap/js/test/**
+src/bootstrap/js/test/
 src/bootstrap/js/*.js
 
 !empty.gitignore
