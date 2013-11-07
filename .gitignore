@@ -9,4 +9,4 @@ js/vender/
 src/bootstrap/
 src/library/
 
-*.gitignore
+!*.gitignore
