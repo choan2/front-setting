@@ -1,12 +1,14 @@
 .project
 .settings/
 
-# node_modules/ 디렉토리에 있는 모든 파일은 무시한다.
 node_modules/
 
 js/vender/
 
-src/bootstrap/
-src/library/
+# src/bootstrap/
+src/bootstrap/js
+src/bootstrap/css
 
-!*.gitignore
+!empty.gitignore
+
+1234.html
