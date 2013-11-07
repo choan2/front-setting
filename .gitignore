@@ -5,10 +5,8 @@ node_modules/
 
 js/vender/
 
-src/bootstrap/less/*.less
-src/bootstrap/js/test/
-src/bootstrap/js/*.js
+src/bootstrap/less/
+src/bootstrap/js/
 
 !empty.gitignore
 
-1234.html
