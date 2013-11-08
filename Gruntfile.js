@@ -71,6 +71,15 @@ module.exports = function(grunt) {
 				ext: '.min.css'
 			}
 		},
+		
+		copy: {
+		  main: {
+		    files: [
+		      {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: 'src/bootstrap/less/'},
+		      {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],     dest: 'src/bootstrap/js/'}
+		    ]
+		  }
+		},
 				
 		watch: {
 			less:{
@@ -84,6 +93,7 @@ module.exports = function(grunt) {
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -92,6 +102,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-less');
 
+	grunt.registerTask('config', ['copy']);
 	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'watch']);
 };
 
