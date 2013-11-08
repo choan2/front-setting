@@ -60,6 +60,7 @@ publishing/
 1. git clone git@github.com:ace4gi/setting.git 角青
 2. bower install 角青
 3. npm install 角青
+4. grunt config
 4. grunt 角青
 
 
