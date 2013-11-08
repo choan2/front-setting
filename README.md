@@ -38,17 +38,18 @@ publishing/
 │   ├── bootstrap/
 │   │    ├── less/
 │   │    └── js/
-│   ├── less/
-│   └── js/
+│   └── ui/
+│        ├── less/
+│        └── js/
 │
 ├── images/
 │
 ├── html/ (html 페이지 작성)
 │   └── index.html
 │
-├── status/ (현황판)
+├── html-status/ (현황판)
 │
-└── guide/ (가이드)
+└── html-guide/ (가이드)
 ```
 
 ## 요구사항
@@ -60,7 +61,7 @@ publishing/
 1. git clone git@github.com:ace4gi/setting.git 실행
 2. bower install 실행
 3. npm install 실행
-4. grunt config
+4. grunt config 실행
 4. grunt 실행
 
 
