@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		},
 		
 		exec: {
-			initMakeDir: {
+			initMakeDir: { 
 				cmd: "cd " + __dirname,
 				callback : function(){
 					var dirs, i;
