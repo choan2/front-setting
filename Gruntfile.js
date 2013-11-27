@@ -12,6 +12,50 @@ module.exports = function(grunt) {
 
 		},
 		
+		exec: {
+			initMakeDir: {
+				cmd: "cd " + __dirname,
+				callback : function(){
+					var dirs, i;
+		      	
+					dirs = [
+						'/css',
+		      		
+						'/js/plugin',
+						'/js/vender',
+		      		
+						'/source',
+						'/source/bootstrap/less',
+						'/source/bootstrap/js',
+						'/source/ui/less',
+						'/source/ui/js',
+		      		
+						'/images/',
+						'/images/common',
+						'/images/layout',
+						'/images/icon',
+						'/images/btn',
+	
+						'/images/main',
+						'/images/sub01',
+		      		
+						'/html',       // (html 페이지 작성)
+						'/html/main',
+						'/html/sub01',
+		      		
+						'/html-status', // (현황판)
+		      		
+						'/html-guide'  // (가이드)
+					];
+	
+					for(i=0; i<dirs.length; i++){
+						var dir = dirs[i];
+						grunt.file.mkdir(path.normalize(__dirname+dir));
+					}
+				}
+			} // end - initMakeDir
+		},
+		
 		jshint: {},
 		lint: {},
 		qunit: {},
@@ -60,7 +104,7 @@ module.exports = function(grunt) {
 		},
 		
 		copy: {
-		  main: {
+		  bootstrap: {
 		    files: [
 		      {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>/bootstrap/less/'},
 		      {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],     dest: '<%= path.js_src %>/bootstrap/js/'}
@@ -77,21 +121,10 @@ module.exports = function(grunt) {
 				files: ['<%= path.js_src %>/**/*.js'],
 				tasks: ['concat', 'uglify']
 			}
-		},
-		
-		directorys: {
-			defaults: [
-				"test1",
-		        "test1/test2",
-		        "test1/test3"
-			]
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-directorys');
-	grunt.registerTask('makeDir', ['directorys']);
-
-
+	// grunt-contrib
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -101,10 +134,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-less');
 
+	// grunt-other
 	grunt.loadNpmTasks('grunt-exec');
-
-
-	grunt.registerTask('config', ['copy']);
+	
+	// Task
+	grunt.registerTask('config', ['exec:initMakeDir', 'copy:bootstrap']);
 	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'watch']);
 };
 
