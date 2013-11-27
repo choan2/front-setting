@@ -3,18 +3,7 @@
 	"version": "0.1.0",
 	"devDependencies": {
 		"grunt": "~0.4.1",
-		"grunt-contrib-nodeunit": "latest",
-
-		"grunt-contrib-jshint":  "latest",
-		"grunt-contrib-qunit":  "latest",
-	
-		"grunt-contrib-concat":  "latest",
-		"grunt-contrib-uglify":  "latest",
-		"grunt-contrib-cssmin":  "latest",
-		"grunt-contrib-less":  "latest",
-	
-		"grunt-contrib-copy":  "latest",
-	
-		"grunt-contrib-watch":  "latest" 
+		"grunt-contrib": "",
+		"bower" : "latest"
   }
 }

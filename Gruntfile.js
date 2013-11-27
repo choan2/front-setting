@@ -2,10 +2,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		path: {
-			js_src : "src/",
+			js_src  : "source/",
 			js_dist : "js/",
 			
-			css_src : "src/",
+			css_src  : "source/",
 			css_dist : "css/",
 		},
 		meta: {
@@ -18,24 +18,11 @@ module.exports = function(grunt) {
 
 		concat: {
 			ui: {
-				src: ['<%= path.js_src %>js/*.js'],
-				dest: '<%= path.js_dist %><%= pkg.name %>.js'
+				src: ['<%= path.js_src %>ui/js/*.js'],
+				dest: '<%= path.js_dist %>ui.js'
 			},
-			bootstrapJS: {
-				src: [
-					'<%= path.js_src %>bootstrap/js/transition.js',
-					'<%= path.js_src %>bootstrap/js/alert.js',
-					'<%= path.js_src %>bootstrap/js/button.js',
-					'<%= path.js_src %>bootstrap/js/carousel.js',
-					'<%= path.js_src %>bootstrap/js/collapse.js',
-					'<%= path.js_src %>bootstrap/js/dropdown.js',
-					'<%= path.js_src %>bootstrap/js/modal.js',
-					'<%= path.js_src %>bootstrap/js/tooltip.js',
-					'<%= path.js_src %>bootstrap/js/popover.js',
-					'<%= path.js_src %>bootstrap/js/scrollspy.js',
-					'<%= path.js_src %>bootstrap/js/tab.js',
-					'<%= path.js_src %>bootstrap/js/affix.js'
-		        ],
+			bootstrap: {
+				src: ['<%= path.js_src %>bootstrap/js/*.js'],
 				dest: '<%= path.js_dist %>bootstrap.js'
 			}
 		},
@@ -48,7 +35,7 @@ module.exports = function(grunt) {
 			},
 			ui: {
 				files: {
-					"<%= path.css_dist %><%= pkg.name %>.css": "<%= path.css_src %>less/*.less"
+					"<%= path.css_dist %>ui.css": "<%= path.css_src %>ui/less/*.less"
 				}
 			}
 		},
@@ -75,8 +62,8 @@ module.exports = function(grunt) {
 		copy: {
 		  main: {
 		    files: [
-		      {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: 'src/bootstrap/less/'},
-		      {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],     dest: 'src/bootstrap/js/'}
+		      {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>/bootstrap/less/'},
+		      {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],     dest: '<%= path.js_src %>/bootstrap/js/'}
 		    ]
 		  }
 		},
