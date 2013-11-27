@@ -1,391 +1,139 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'c:\\nodejs\\node.exe',
 1 verbose cli   'c:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'install' ]
+1 verbose cli   'install',
+1 verbose cli   'grunt-exec' ]
 2 info using npm@1.3.8
 3 info using node@v0.10.17
 4 warn package.json ui@0.1.0 No repository field.
 5 verbose readDependencies using package.json deps
-6 verbose install where, deps [ 'C:\\grunt', [ 'grunt', 'grunt-contrib' ] ]
-7 info preinstall ui@0.1.0
-8 verbose readDependencies using package.json deps
-9 verbose already installed skipping grunt@~0.4.1 C:\grunt
-10 verbose cache add [ 'grunt-contrib@latest', null ]
-11 verbose cache add name=undefined spec="grunt-contrib@latest" args=["grunt-contrib@latest",null]
-12 verbose parsed url { protocol: null,
-12 verbose parsed url   slashes: null,
-12 verbose parsed url   auth: null,
-12 verbose parsed url   host: null,
-12 verbose parsed url   port: null,
-12 verbose parsed url   hostname: null,
-12 verbose parsed url   hash: null,
-12 verbose parsed url   search: null,
-12 verbose parsed url   query: null,
-12 verbose parsed url   pathname: 'grunt-contrib@latest',
-12 verbose parsed url   path: 'grunt-contrib@latest',
-12 verbose parsed url   href: 'grunt-contrib@latest' }
-13 verbose cache add name="grunt-contrib" spec="latest" args=["grunt-contrib","latest"]
-14 verbose parsed url { protocol: null,
-14 verbose parsed url   slashes: null,
-14 verbose parsed url   auth: null,
-14 verbose parsed url   host: null,
-14 verbose parsed url   port: null,
-14 verbose parsed url   hostname: null,
-14 verbose parsed url   hash: null,
-14 verbose parsed url   search: null,
-14 verbose parsed url   query: null,
-14 verbose parsed url   pathname: 'latest',
-14 verbose parsed url   path: 'latest',
-14 verbose parsed url   href: 'latest' }
-15 verbose addNamed [ 'grunt-contrib', 'latest' ]
-16 verbose addNamed [ null, null ]
-17 silly lockFile d14baed0-grunt-contrib-latest grunt-contrib@latest
-18 verbose lock grunt-contrib@latest C:\Users\my\AppData\Roaming\npm-cache\d14baed0-grunt-contrib-latest.lock
-19 info addNameTag [ 'grunt-contrib', 'latest' ]
-20 verbose url raw grunt-contrib
-21 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib' ]
-22 verbose url resolved https://registry.npmjs.org/grunt-contrib
-23 info trying registry request attempt 1 at 10:48:56
-24 verbose etag "DCANCCS7BYNPJ7D31QL8YYOXE"
-25 http GET https://registry.npmjs.org/grunt-contrib
-26 http 304 https://registry.npmjs.org/grunt-contrib
-27 silly registry.get cb [ 304,
-27 silly registry.get   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
-27 silly registry.get     etag: '"DCANCCS7BYNPJ7D31QL8YYOXE"',
-27 silly registry.get     date: 'Wed, 27 Nov 2013 01:48:58 GMT',
-27 silly registry.get     'content-length': '0' } ]
-28 verbose etag grunt-contrib from cache
-29 verbose addNamed [ 'grunt-contrib', '0.8.0' ]
-30 verbose addNamed [ '0.8.0', '0.8.0' ]
-31 silly lockFile f146c5e6-grunt-contrib-0-8-0 grunt-contrib@0.8.0
-32 verbose lock grunt-contrib@0.8.0 C:\Users\my\AppData\Roaming\npm-cache\f146c5e6-grunt-contrib-0-8-0.lock
-33 silly lockFile f146c5e6-grunt-contrib-0-8-0 grunt-contrib@0.8.0
-34 silly lockFile f146c5e6-grunt-contrib-0-8-0 grunt-contrib@0.8.0
-35 silly lockFile d14baed0-grunt-contrib-latest grunt-contrib@latest
-36 silly lockFile d14baed0-grunt-contrib-latest grunt-contrib@latest
-37 info already installed grunt-contrib@0.8.0
-38 silly resolved []
-39 info build C:\grunt
-40 verbose linkStuff [ false, false, false, 'C:\\' ]
-41 info linkStuff ui@0.1.0
-42 verbose linkBins ui@0.1.0
-43 verbose linkMans ui@0.1.0
-44 verbose rebuildBundles ui@0.1.0
-45 verbose rebuildBundles [ 'grunt',
-45 verbose rebuildBundles   'grunt-contrib',
-45 verbose rebuildBundles   'grunt-contrib-clean',
-45 verbose rebuildBundles   'grunt-contrib-coffee',
-45 verbose rebuildBundles   'grunt-contrib-compass',
-45 verbose rebuildBundles   'grunt-contrib-compress',
-45 verbose rebuildBundles   'grunt-contrib-concat',
-45 verbose rebuildBundles   'grunt-contrib-connect',
-45 verbose rebuildBundles   'grunt-contrib-copy',
-45 verbose rebuildBundles   'grunt-contrib-csslint',
-45 verbose rebuildBundles   'grunt-contrib-cssmin',
-45 verbose rebuildBundles   'grunt-contrib-handlebars',
-45 verbose rebuildBundles   'grunt-contrib-htmlmin',
-45 verbose rebuildBundles   'grunt-contrib-imagemin',
-45 verbose rebuildBundles   'grunt-contrib-jade',
-45 verbose rebuildBundles   'grunt-contrib-jasmine',
-45 verbose rebuildBundles   'grunt-contrib-jshint',
-45 verbose rebuildBundles   'grunt-contrib-jst',
-45 verbose rebuildBundles   'grunt-contrib-less',
-45 verbose rebuildBundles   'grunt-contrib-nodeunit',
-45 verbose rebuildBundles   'grunt-contrib-qunit',
-45 verbose rebuildBundles   'grunt-contrib-requirejs',
-45 verbose rebuildBundles   'grunt-contrib-sass',
-45 verbose rebuildBundles   'grunt-contrib-stylus',
-45 verbose rebuildBundles   'grunt-contrib-uglify',
-45 verbose rebuildBundles   'grunt-contrib-watch',
-45 verbose rebuildBundles   'grunt-contrib-yuidoc' ]
-46 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-clean
-47 info build C:\grunt\node_modules\grunt-contrib-clean
-48 info preinstall grunt-contrib-clean@0.5.0
-49 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-50 info linkStuff grunt-contrib-clean@0.5.0
-51 verbose linkBins grunt-contrib-clean@0.5.0
-52 verbose linkMans grunt-contrib-clean@0.5.0
-53 verbose rebuildBundles grunt-contrib-clean@0.5.0
-54 verbose rebuildBundles [ '.bin', 'rimraf' ]
-55 info install grunt-contrib-clean@0.5.0
-56 info postinstall grunt-contrib-clean@0.5.0
-57 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-coffee
-58 info build C:\grunt\node_modules\grunt-contrib-coffee
-59 info preinstall grunt-contrib-coffee@0.7.0
-60 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-61 info linkStuff grunt-contrib-coffee@0.7.0
-62 verbose linkBins grunt-contrib-coffee@0.7.0
-63 verbose linkMans grunt-contrib-coffee@0.7.0
-64 verbose rebuildBundles grunt-contrib-coffee@0.7.0
-65 verbose rebuildBundles [ '.bin', 'coffee-script' ]
-66 info install grunt-contrib-coffee@0.7.0
-67 info postinstall grunt-contrib-coffee@0.7.0
-68 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-compass
-69 info build C:\grunt\node_modules\grunt-contrib-compass
-70 info preinstall grunt-contrib-compass@0.6.0
-71 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-72 info linkStuff grunt-contrib-compass@0.6.0
-73 verbose linkBins grunt-contrib-compass@0.6.0
-74 verbose linkMans grunt-contrib-compass@0.6.0
-75 verbose rebuildBundles grunt-contrib-compass@0.6.0
-76 verbose rebuildBundles [ 'async', 'dargs', 'tmp' ]
-77 info install grunt-contrib-compass@0.6.0
-78 info postinstall grunt-contrib-compass@0.6.0
-79 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-compress
-80 info build C:\grunt\node_modules\grunt-contrib-compress
-81 info preinstall grunt-contrib-compress@0.5.2
-82 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-83 info linkStuff grunt-contrib-compress@0.5.2
-84 verbose linkBins grunt-contrib-compress@0.5.2
-85 verbose linkMans grunt-contrib-compress@0.5.2
-86 verbose rebuildBundles grunt-contrib-compress@0.5.2
-87 verbose rebuildBundles [ 'archiver', 'lazystream', 'prettysize' ]
-88 info install grunt-contrib-compress@0.5.2
-89 info postinstall grunt-contrib-compress@0.5.2
-90 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-concat
-91 info build C:\grunt\node_modules\grunt-contrib-concat
-92 info preinstall grunt-contrib-concat@0.3.0
-93 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-94 info linkStuff grunt-contrib-concat@0.3.0
-95 verbose linkBins grunt-contrib-concat@0.3.0
-96 verbose linkMans grunt-contrib-concat@0.3.0
-97 verbose rebuildBundles grunt-contrib-concat@0.3.0
-98 info install grunt-contrib-concat@0.3.0
-99 info postinstall grunt-contrib-concat@0.3.0
-100 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-connect
-101 info build C:\grunt\node_modules\grunt-contrib-connect
-102 info preinstall grunt-contrib-connect@0.5.0
-103 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-104 info linkStuff grunt-contrib-connect@0.5.0
-105 verbose linkBins grunt-contrib-connect@0.5.0
-106 verbose linkMans grunt-contrib-connect@0.5.0
-107 verbose rebuildBundles grunt-contrib-connect@0.5.0
-108 verbose rebuildBundles [ 'connect', 'connect-livereload', 'open' ]
-109 info install grunt-contrib-connect@0.5.0
-110 info postinstall grunt-contrib-connect@0.5.0
-111 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-copy
-112 info build C:\grunt\node_modules\grunt-contrib-copy
-113 info preinstall grunt-contrib-copy@0.4.1
-114 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-115 info linkStuff grunt-contrib-copy@0.4.1
-116 verbose linkBins grunt-contrib-copy@0.4.1
-117 verbose linkMans grunt-contrib-copy@0.4.1
-118 verbose rebuildBundles grunt-contrib-copy@0.4.1
-119 info install grunt-contrib-copy@0.4.1
-120 info postinstall grunt-contrib-copy@0.4.1
-121 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-csslint
-122 info build C:\grunt\node_modules\grunt-contrib-csslint
-123 info preinstall grunt-contrib-csslint@0.1.2
-124 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-125 info linkStuff grunt-contrib-csslint@0.1.2
-126 verbose linkBins grunt-contrib-csslint@0.1.2
-127 verbose linkMans grunt-contrib-csslint@0.1.2
-128 verbose rebuildBundles grunt-contrib-csslint@0.1.2
-129 verbose rebuildBundles [ '.bin', 'csslint' ]
-130 info install grunt-contrib-csslint@0.1.2
-131 info postinstall grunt-contrib-csslint@0.1.2
-132 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-cssmin
-133 info build C:\grunt\node_modules\grunt-contrib-cssmin
-134 info preinstall grunt-contrib-cssmin@0.7.0
-135 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-136 info linkStuff grunt-contrib-cssmin@0.7.0
-137 verbose linkBins grunt-contrib-cssmin@0.7.0
-138 verbose linkMans grunt-contrib-cssmin@0.7.0
-139 verbose rebuildBundles grunt-contrib-cssmin@0.7.0
-140 verbose rebuildBundles [ '.bin', 'clean-css', 'grunt-lib-contrib' ]
-141 info install grunt-contrib-cssmin@0.7.0
-142 info postinstall grunt-contrib-cssmin@0.7.0
-143 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-handlebars
-144 info build C:\grunt\node_modules\grunt-contrib-handlebars
-145 info preinstall grunt-contrib-handlebars@0.5.12
-146 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-147 info linkStuff grunt-contrib-handlebars@0.5.12
-148 verbose linkBins grunt-contrib-handlebars@0.5.12
-149 verbose linkMans grunt-contrib-handlebars@0.5.12
-150 verbose rebuildBundles grunt-contrib-handlebars@0.5.12
-151 verbose rebuildBundles [ '.bin', 'grunt-lib-contrib', 'handlebars' ]
-152 info install grunt-contrib-handlebars@0.5.12
-153 info postinstall grunt-contrib-handlebars@0.5.12
-154 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-htmlmin
-155 info build C:\grunt\node_modules\grunt-contrib-htmlmin
-156 info preinstall grunt-contrib-htmlmin@0.1.3
-157 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-158 info linkStuff grunt-contrib-htmlmin@0.1.3
-159 verbose linkBins grunt-contrib-htmlmin@0.1.3
-160 verbose linkMans grunt-contrib-htmlmin@0.1.3
-161 verbose rebuildBundles grunt-contrib-htmlmin@0.1.3
-162 verbose rebuildBundles [ 'grunt-lib-contrib', 'html-minifier' ]
-163 info install grunt-contrib-htmlmin@0.1.3
-164 info postinstall grunt-contrib-htmlmin@0.1.3
-165 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-imagemin
-166 info build C:\grunt\node_modules\grunt-contrib-imagemin
-167 info preinstall grunt-contrib-imagemin@0.3.0
-168 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-169 info linkStuff grunt-contrib-imagemin@0.3.0
-170 verbose linkBins grunt-contrib-imagemin@0.3.0
-171 verbose linkMans grunt-contrib-imagemin@0.3.0
-172 verbose rebuildBundles grunt-contrib-imagemin@0.3.0
-173 verbose rebuildBundles [ '.bin',
-173 verbose rebuildBundles   'chalk',
-173 verbose rebuildBundles   'filesize',
-173 verbose rebuildBundles   'gifsicle',
-173 verbose rebuildBundles   'jpegtran-bin',
-173 verbose rebuildBundles   'optipng-bin',
-173 verbose rebuildBundles   'pngquant-bin' ]
-174 info install grunt-contrib-imagemin@0.3.0
-175 info postinstall grunt-contrib-imagemin@0.3.0
-176 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-jade
-177 info build C:\grunt\node_modules\grunt-contrib-jade
-178 info preinstall grunt-contrib-jade@0.8.0
-179 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-180 info linkStuff grunt-contrib-jade@0.8.0
-181 verbose linkBins grunt-contrib-jade@0.8.0
-182 verbose linkMans grunt-contrib-jade@0.8.0
-183 verbose rebuildBundles grunt-contrib-jade@0.8.0
-184 verbose rebuildBundles [ '.bin', 'grunt-lib-contrib', 'jade' ]
-185 info install grunt-contrib-jade@0.8.0
-186 info postinstall grunt-contrib-jade@0.8.0
-187 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-jasmine
-188 info build C:\grunt\node_modules\grunt-contrib-jasmine
-189 info preinstall grunt-contrib-jasmine@0.5.2
-190 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-191 info linkStuff grunt-contrib-jasmine@0.5.2
-192 verbose linkBins grunt-contrib-jasmine@0.5.2
-193 verbose linkMans grunt-contrib-jasmine@0.5.2
-194 verbose rebuildBundles grunt-contrib-jasmine@0.5.2
-195 verbose rebuildBundles [ 'grunt-lib-phantomjs', 'rimraf' ]
-196 info install grunt-contrib-jasmine@0.5.2
-197 info postinstall grunt-contrib-jasmine@0.5.2
-198 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-jshint
-199 info build C:\grunt\node_modules\grunt-contrib-jshint
-200 info preinstall grunt-contrib-jshint@0.7.1
-201 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-202 info linkStuff grunt-contrib-jshint@0.7.1
-203 verbose linkBins grunt-contrib-jshint@0.7.1
-204 verbose linkMans grunt-contrib-jshint@0.7.1
-205 verbose rebuildBundles grunt-contrib-jshint@0.7.1
-206 verbose rebuildBundles [ '.bin', 'jshint' ]
-207 info install grunt-contrib-jshint@0.7.1
-208 info postinstall grunt-contrib-jshint@0.7.1
-209 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-jst
-210 info build C:\grunt\node_modules\grunt-contrib-jst
-211 info preinstall grunt-contrib-jst@0.5.1
-212 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-213 info linkStuff grunt-contrib-jst@0.5.1
-214 verbose linkBins grunt-contrib-jst@0.5.1
-215 verbose linkMans grunt-contrib-jst@0.5.1
-216 verbose rebuildBundles grunt-contrib-jst@0.5.1
-217 verbose rebuildBundles [ 'grunt-lib-contrib', 'lodash' ]
-218 info install grunt-contrib-jst@0.5.1
-219 info postinstall grunt-contrib-jst@0.5.1
-220 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-less
-221 info build C:\grunt\node_modules\grunt-contrib-less
-222 info preinstall grunt-contrib-less@0.8.1
-223 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-224 info linkStuff grunt-contrib-less@0.8.1
-225 verbose linkBins grunt-contrib-less@0.8.1
-226 verbose linkMans grunt-contrib-less@0.8.1
-227 verbose rebuildBundles grunt-contrib-less@0.8.1
-228 verbose rebuildBundles [ '.bin', 'grunt-lib-contrib', 'less' ]
-229 info install grunt-contrib-less@0.8.1
-230 info postinstall grunt-contrib-less@0.8.1
-231 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-nodeunit
-232 info build C:\grunt\node_modules\grunt-contrib-nodeunit
-233 info preinstall grunt-contrib-nodeunit@0.2.2
-234 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-235 info linkStuff grunt-contrib-nodeunit@0.2.2
-236 verbose linkBins grunt-contrib-nodeunit@0.2.2
-237 verbose linkMans grunt-contrib-nodeunit@0.2.2
-238 verbose rebuildBundles grunt-contrib-nodeunit@0.2.2
-239 verbose rebuildBundles [ '.bin', 'nodeunit' ]
-240 info install grunt-contrib-nodeunit@0.2.2
-241 info postinstall grunt-contrib-nodeunit@0.2.2
-242 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-qunit
-243 info build C:\grunt\node_modules\grunt-contrib-qunit
-244 info preinstall grunt-contrib-qunit@0.3.0
-245 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-246 info linkStuff grunt-contrib-qunit@0.3.0
-247 verbose linkBins grunt-contrib-qunit@0.3.0
-248 verbose linkMans grunt-contrib-qunit@0.3.0
-249 verbose rebuildBundles grunt-contrib-qunit@0.3.0
-250 verbose rebuildBundles [ 'grunt-lib-phantomjs' ]
-251 info install grunt-contrib-qunit@0.3.0
-252 info postinstall grunt-contrib-qunit@0.3.0
-253 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-requirejs
-254 info build C:\grunt\node_modules\grunt-contrib-requirejs
-255 info preinstall grunt-contrib-requirejs@0.4.1
-256 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-257 info linkStuff grunt-contrib-requirejs@0.4.1
-258 verbose linkBins grunt-contrib-requirejs@0.4.1
-259 verbose linkMans grunt-contrib-requirejs@0.4.1
-260 verbose rebuildBundles grunt-contrib-requirejs@0.4.1
-261 verbose rebuildBundles [ '.bin', 'requirejs' ]
-262 info install grunt-contrib-requirejs@0.4.1
-263 info postinstall grunt-contrib-requirejs@0.4.1
-264 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-sass
-265 info build C:\grunt\node_modules\grunt-contrib-sass
-266 info preinstall grunt-contrib-sass@0.5.1
-267 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-268 info linkStuff grunt-contrib-sass@0.5.1
-269 verbose linkBins grunt-contrib-sass@0.5.1
-270 verbose linkMans grunt-contrib-sass@0.5.1
-271 verbose rebuildBundles grunt-contrib-sass@0.5.1
-272 verbose rebuildBundles [ 'async', 'dargs' ]
-273 info install grunt-contrib-sass@0.5.1
-274 info postinstall grunt-contrib-sass@0.5.1
-275 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-stylus
-276 info build C:\grunt\node_modules\grunt-contrib-stylus
-277 info preinstall grunt-contrib-stylus@0.8.0
-278 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-279 info linkStuff grunt-contrib-stylus@0.8.0
-280 verbose linkBins grunt-contrib-stylus@0.8.0
-281 verbose linkMans grunt-contrib-stylus@0.8.0
-282 verbose rebuildBundles grunt-contrib-stylus@0.8.0
-283 verbose rebuildBundles [ '.bin', 'nib', 'stylus' ]
-284 info install grunt-contrib-stylus@0.8.0
-285 info postinstall grunt-contrib-stylus@0.8.0
-286 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-uglify
-287 info build C:\grunt\node_modules\grunt-contrib-uglify
-288 info preinstall grunt-contrib-uglify@0.2.5
-289 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-290 info linkStuff grunt-contrib-uglify@0.2.5
-291 verbose linkBins grunt-contrib-uglify@0.2.5
-292 verbose linkMans grunt-contrib-uglify@0.2.5
-293 verbose rebuildBundles grunt-contrib-uglify@0.2.5
-294 verbose rebuildBundles [ '.bin', 'grunt-lib-contrib', 'uglify-js' ]
-295 info install grunt-contrib-uglify@0.2.5
-296 info postinstall grunt-contrib-uglify@0.2.5
-297 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-watch
-298 info build C:\grunt\node_modules\grunt-contrib-watch
-299 info preinstall grunt-contrib-watch@0.5.3
-300 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-301 info linkStuff grunt-contrib-watch@0.5.3
-302 verbose linkBins grunt-contrib-watch@0.5.3
-303 verbose linkMans grunt-contrib-watch@0.5.3
-304 verbose rebuildBundles grunt-contrib-watch@0.5.3
-305 verbose rebuildBundles [ '.bin', 'gaze', 'tiny-lr' ]
-306 info install grunt-contrib-watch@0.5.3
-307 info postinstall grunt-contrib-watch@0.5.3
-308 verbose rebuild bundle C:\grunt\node_modules\grunt-contrib-yuidoc
-309 info build C:\grunt\node_modules\grunt-contrib-yuidoc
-310 info preinstall grunt-contrib-yuidoc@0.5.0
-311 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
-312 info linkStuff grunt-contrib-yuidoc@0.5.0
-313 verbose linkBins grunt-contrib-yuidoc@0.5.0
-314 verbose linkMans grunt-contrib-yuidoc@0.5.0
-315 verbose rebuildBundles grunt-contrib-yuidoc@0.5.0
-316 verbose rebuildBundles [ '.bin', 'yuidocjs' ]
-317 info install grunt-contrib-yuidoc@0.5.0
-318 info postinstall grunt-contrib-yuidoc@0.5.0
-319 info install ui@0.1.0
-320 info postinstall ui@0.1.0
-321 info prepublish ui@0.1.0
-322 error peerinvalid The package grunt-contrib-cssmin does not satisfy its siblings' peerDependencies requirements!
-322 error peerinvalid Peer grunt-contrib@0.8.0 wants grunt-contrib-cssmin@~0.6.2
-323 error System Windows_NT 6.1.7601
-324 error command "c:\\nodejs\\node.exe" "c:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
-325 error cwd C:\grunt
-326 error node -v v0.10.17
-327 error npm -v 1.3.8
-328 error code EPEERINVALID
-329 verbose exit [ 1, true ]
+6 verbose cache add [ 'grunt-exec', null ]
+7 verbose cache add name=undefined spec="grunt-exec" args=["grunt-exec",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'grunt-exec',
+8 verbose parsed url   path: 'grunt-exec',
+8 verbose parsed url   href: 'grunt-exec' }
+9 silly lockFile 3a47c75c-grunt-exec grunt-exec
+10 verbose lock grunt-exec C:\Users\my\AppData\Roaming\npm-cache\3a47c75c-grunt-exec.lock
+11 silly lockFile 3a47c75c-grunt-exec grunt-exec
+12 silly lockFile 3a47c75c-grunt-exec grunt-exec
+13 verbose addNamed [ 'grunt-exec', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 422339f7-grunt-exec grunt-exec@
+16 verbose lock grunt-exec@ C:\Users\my\AppData\Roaming\npm-cache\422339f7-grunt-exec.lock
+17 silly addNameRange { name: 'grunt-exec', range: '*', hasData: false }
+18 verbose url raw grunt-exec
+19 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-exec' ]
+20 verbose url resolved https://registry.npmjs.org/grunt-exec
+21 info trying registry request attempt 1 at 14:36:55
+22 verbose etag "1AHERHT95GF99F6W3HBFLLOSL"
+23 http GET https://registry.npmjs.org/grunt-exec
+24 http 304 https://registry.npmjs.org/grunt-exec
+25 silly registry.get cb [ 304,
+25 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R15B03)',
+25 silly registry.get     etag: '"1AHERHT95GF99F6W3HBFLLOSL"',
+25 silly registry.get     date: 'Wed, 27 Nov 2013 05:36:56 GMT',
+25 silly registry.get     'content-length': '0' } ]
+26 verbose etag grunt-exec from cache
+27 silly addNameRange number 2 { name: 'grunt-exec', range: '*', hasData: true }
+28 silly addNameRange versions [ 'grunt-exec',
+28 silly addNameRange   [ '0.1.0',
+28 silly addNameRange     '0.1.1',
+28 silly addNameRange     '0.2.0',
+28 silly addNameRange     '0.2.1',
+28 silly addNameRange     '0.3.0',
+28 silly addNameRange     '0.4.0',
+28 silly addNameRange     '0.4.1',
+28 silly addNameRange     '0.4.2',
+28 silly addNameRange     '0.4.0-rc1' ] ]
+29 verbose addNamed [ 'grunt-exec', '0.4.2' ]
+30 verbose addNamed [ '0.4.2', '0.4.2' ]
+31 silly lockFile ee70e970-grunt-exec-0-4-2 grunt-exec@0.4.2
+32 verbose lock grunt-exec@0.4.2 C:\Users\my\AppData\Roaming\npm-cache\ee70e970-grunt-exec-0-4-2.lock
+33 silly lockFile ee70e970-grunt-exec-0-4-2 grunt-exec@0.4.2
+34 silly lockFile ee70e970-grunt-exec-0-4-2 grunt-exec@0.4.2
+35 silly lockFile 422339f7-grunt-exec grunt-exec@
+36 silly lockFile 422339f7-grunt-exec grunt-exec@
+37 silly resolved [ { name: 'grunt-exec',
+37 silly resolved     description: 'Grunt task for executing shell commands.',
+37 silly resolved     version: '0.4.2',
+37 silly resolved     homepage: 'https://github.com/jharding/grunt-exec',
+37 silly resolved     author: { name: 'Jake Harding', email: 'jacob.s.harding@gmail.com' },
+37 silly resolved     repository: { type: 'git', url: 'git://github.com/jharding/grunt-exec.git' },
+37 silly resolved     bugs: { url: 'https://github.com/jharding/grunt-exec/issues' },
+37 silly resolved     licenses: [ [Object] ],
+37 silly resolved     main: 'Gruntfile.js',
+37 silly resolved     engines: { node: '>=0.8.0' },
+37 silly resolved     scripts: { test: '/usr/bin/env node test/test.js' },
+37 silly resolved     peerDependencies: { grunt: '~0.4' },
+37 silly resolved     devDependencies: { grunt: '~0.4', 'grunt-contrib-jshint': '~0.1' },
+37 silly resolved     keywords: [ 'grunt', 'gruntplugin', 'shell' ],
+37 silly resolved     readme: '[![build status](https://secure.travis-ci.org/jharding/grunt-exec.png?branch=master)](http://travis-ci.org/jharding/grunt-exec)\ngrunt-exec\n==========\n\nGrunt plugin for executing shell commands.\n\nInstallation\n------------\n\nInstall grunt-exec using npm:\n\n```\n$ npm install grunt-exec\n```\n\nThen add this line to your project\'s *Gruntfile.js*:\n\n```javascript\ngrunt.loadNpmTasks(\'grunt-exec\');\n```\n\nUsage\n-----\n\nThis plugin is a [multi task][types_of_tasks], meaning that grunt will automatically iterate over all exec targets if a target is not specified.\n\nIf the exit code generated by the specified shell command is greater than 0, grunt-exec will assume an error has occurred and will abort grunt immediately.\n\n[types_of_tasks]: https://github.com/gruntjs/grunt/blob/master/docs/types_of_tasks.md#multi-tasks\n\n### Properties\n\n*   __command__: The shell command to be executed. Must be a string or a function that returns a string. (alias: __cmd__)\n*   __stdout__: If `true`, stdout will be printed. Defaults to `true`.\n*   __stderr__: If `true`, stderr will be printed. Defaults to `true`.\n*   __cwd__: Current working directory of the shell command. Defaults to the directory containing your Gruntfile.\n*   __exitCode__: The expected exit code, task will fail if the actual exit code doesn\'t match. Defaults to `0`.\n*   __callback__: The callback function passed `child_process.exec`. Defaults to a noop.\n\n### Command Functions\n\nIf you plan on doing advanced stuff with grunt-exec, you\'ll most likely be using functions for the `command` property of your exec targets. This section details a couple of helpful tips about command functions that could help make your life easier.\n\n#### Passing arguments from the command line\n\nCommand functions can be called with arbitrary arguments. Let\'s say we have the following exec target that echoes a formatted name:\n\n```javascript\nexec: {\n  echo_name: {\n    cmd: function(firstName, lastName) {\n      var formattedName = [\n        lastName.toUpperCase(),\n        firstName.toUpperCase()\n      ].join(\', \');\n\n      return \'echo \' + formattedName;\n    }\n  }\n}\n```\n\nIn order to get `SIMPSON, HOMER` echoed, you\'d run `grunt exec:echo_name:homer:simpson` from the command line.\n\n### Accessing `grunt` object\n\nAll command functions are called in the context of the `grunt` object that they are being ran with. This means you can access the `grunt` object through `this`.\n\n### Example\n\nThe following examples are available in grunt-exec\'s Gruntfile.\n\n```javascript\ngrunt.initConfig({\n  exec: {\n    remove_logs: {\n      command: \'rm -f *.log\',\n      stdout: false,\n      stderr: false\n    },\n    list_files: {\n      cmd: \'ls -l **\'\n    },\n    echo_grunt_version: {\n      cmd: function() { return \'echo \' + this.version; }\n    },\n    echo_name: {\n      cmd: function(firstName, lastName) {\n        var formattedName = [\n          lastName.toUpperCase(),\n          firstName.toUpperCase()\n        ].join(\', \');\n\n        return \'echo \' + formattedName;\n      }\n    }\n  }\n});\n```\n\nTesting\n-------\n\n```\n$ cd grunt-exec\n$ npm test\n```\n\nIssues\n------\n\nFound a bug? Create an issue on GitHub.\n\nhttps://github.com/jharding/grunt-exec/issues\n\nVersioning\n----------\n\nFor transparency and insight into the release cycle, releases will be numbered with the follow format:\n\n`<major>.<minor>.<patch>`\n\nAnd constructed with the following guidelines:\n\n* Breaking backwards compatibility bumps the major\n* New additions without breaking backwards compatibility bumps the minor\n* Bug fixes and misc changes bump the patch\n\nFor more information on semantic versioning, please visit http://semver.org/.\n\nLicense\n-------\n\nCopyright (c) 2012 [Jake Harding](http://thejakeharding.com)  \nLicensed under the MIT License.\n',
+37 silly resolved     readmeFilename: 'README.md',
+37 silly resolved     _id: 'grunt-exec@0.4.2',
+37 silly resolved     _from: 'grunt-exec@' } ]
+38 info install grunt-exec@0.4.2 into C:\grunt
+39 info installOne grunt-exec@0.4.2
+40 info C:\grunt\node_modules\grunt-exec unbuild
+41 info preuninstall grunt-exec@0.4.2
+42 info uninstall grunt-exec@0.4.2
+43 verbose true,C:\grunt\node_modules,C:\grunt\node_modules unbuild grunt-exec@0.4.2
+44 info postuninstall grunt-exec@0.4.2
+45 verbose tar unpack C:\Users\my\AppData\Roaming\npm-cache\grunt-exec\0.4.2\package.tgz
+46 silly lockFile bfad08eb--C-grunt-node-modules-grunt-exec tar://C:\grunt\node_modules\grunt-exec
+47 verbose lock tar://C:\grunt\node_modules\grunt-exec C:\Users\my\AppData\Roaming\npm-cache\bfad08eb--C-grunt-node-modules-grunt-exec.lock
+48 silly lockFile 7103b94b-che-grunt-exec-0-4-2-package-tgz tar://C:\Users\my\AppData\Roaming\npm-cache\grunt-exec\0.4.2\package.tgz
+49 verbose lock tar://C:\Users\my\AppData\Roaming\npm-cache\grunt-exec\0.4.2\package.tgz C:\Users\my\AppData\Roaming\npm-cache\7103b94b-che-grunt-exec-0-4-2-package-tgz.lock
+50 silly gunzTarPerm modes [ '755', '644' ]
+51 silly gunzTarPerm extractEntry package.json
+52 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+53 silly gunzTarPerm extractEntry .npmignore
+54 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+55 silly gunzTarPerm extractEntry README.md
+56 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+57 silly gunzTarPerm extractEntry Gruntfile.js
+58 silly gunzTarPerm modified mode [ 'Gruntfile.js', 438, 420 ]
+59 silly gunzTarPerm extractEntry .travis.yml
+60 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+61 silly gunzTarPerm extractEntry LICENSE-MIT
+62 silly gunzTarPerm modified mode [ 'LICENSE-MIT', 438, 420 ]
+63 silly gunzTarPerm extractEntry tasks/exec.js
+64 silly gunzTarPerm modified mode [ 'tasks/exec.js', 438, 420 ]
+65 silly gunzTarPerm extractEntry test/Gruntfile.js
+66 silly gunzTarPerm modified mode [ 'test/Gruntfile.js', 438, 420 ]
+67 silly gunzTarPerm extractEntry test/test.js
+68 silly gunzTarPerm modified mode [ 'test/test.js', 438, 420 ]
+69 silly lockFile bfad08eb--C-grunt-node-modules-grunt-exec tar://C:\grunt\node_modules\grunt-exec
+70 silly lockFile bfad08eb--C-grunt-node-modules-grunt-exec tar://C:\grunt\node_modules\grunt-exec
+71 silly lockFile 7103b94b-che-grunt-exec-0-4-2-package-tgz tar://C:\Users\my\AppData\Roaming\npm-cache\grunt-exec\0.4.2\package.tgz
+72 silly lockFile 7103b94b-che-grunt-exec-0-4-2-package-tgz tar://C:\Users\my\AppData\Roaming\npm-cache\grunt-exec\0.4.2\package.tgz
+73 info preinstall grunt-exec@0.4.2
+74 verbose readDependencies using package.json deps
+75 verbose readDependencies using package.json deps
+76 silly resolved []
+77 verbose about to build C:\grunt\node_modules\grunt-exec
+78 info build C:\grunt\node_modules\grunt-exec
+79 verbose linkStuff [ false, false, false, 'C:\\grunt\\node_modules' ]
+80 info linkStuff grunt-exec@0.4.2
+81 verbose linkBins grunt-exec@0.4.2
+82 verbose linkMans grunt-exec@0.4.2
+83 verbose rebuildBundles grunt-exec@0.4.2
+84 info install grunt-exec@0.4.2
+85 info postinstall grunt-exec@0.4.2
+86 error peerinvalid The package grunt-contrib-cssmin does not satisfy its siblings' peerDependencies requirements!
+86 error peerinvalid Peer grunt-contrib@0.8.0 wants grunt-contrib-cssmin@~0.6.2
+87 error System Windows_NT 6.1.7601
+88 error command "c:\\nodejs\\node.exe" "c:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "grunt-exec"
+89 error cwd C:\grunt
+90 error node -v v0.10.17
+91 error npm -v 1.3.8
+92 error code EPEERINVALID
+93 verbose exit [ 1, true ]

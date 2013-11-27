@@ -27,6 +27,15 @@ module.exports = function(grunt) {
 			}
 		},
 
+		uglify: {
+			dist: {
+				files: {
+					'<%= path.js_dist %>bootstrap.min.js': ['<%= path.js_dist %>bootstrap.js'],
+					'<%= path.js_dist %><%= pkg.name %>.min.js': ['<%= concat.ui.dest %>']
+				}
+			}
+		},
+
 		less: {
 			bootstrap: {
 				files: {
@@ -39,16 +48,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-
-		uglify: {
-			dist: {
-				files: {
-					'<%= path.js_dist %>bootstrap.min.js': ['<%= path.js_dist %>bootstrap.js'],
-					'<%= path.js_dist %><%= pkg.name %>.min.js': ['<%= concat.ui.dest %>']
-				}
-			}
-		},
-
+		
 		cssmin : {
 			minify: {
 				expand: true,
@@ -77,8 +77,20 @@ module.exports = function(grunt) {
 				files: ['<%= path.js_src %>/**/*.js'],
 				tasks: ['concat', 'uglify']
 			}
+		},
+		
+		directorys: {
+			defaults: [
+				"test1",
+		        "test1/test2",
+		        "test1/test3"
+			]
 		}
 	});
+
+	grunt.loadNpmTasks('grunt-directorys');
+	grunt.registerTask('makeDir', ['directorys']);
+
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -88,6 +100,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-less');
+
+	grunt.loadNpmTasks('grunt-exec');
+
 
 	grunt.registerTask('config', ['copy']);
 	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'watch']);
