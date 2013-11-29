@@ -22,9 +22,7 @@ module.exports = function(grunt) {
 					'.git/'
 				],
 				filter: function(filepath) {
-					/*	filter : true(삭제)
-					 * 
-					 */ 
+					// filter : true(삭제)
 					// return (grunt.file.isDir(filepath) && require('fs').readdirSync(filepath).length === 0);
 					return true;
 				}
