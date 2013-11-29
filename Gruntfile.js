@@ -2,18 +2,37 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		path: {
-			js_src  : "source/",
-			js_dist : "js/",
+			js_src  : "source",
+			js_dist : "js",
 			
-			css_src  : "source/",
-			css_dist : "css/",
+			css_src  : "source",
+			css_dist : "css"
 		},
 		meta: {
 
 		},
 		
+        clean: {
+			init: {
+				 // src: html/      html폴더 삭제
+				 // src: html/**/*  html폴더안 모든 내용이 삭제됨 (html폴더는 유지)
+				src: [
+					'<%= path.css_dist %>/**/*',
+					'<%= path.js_dist %>/**/*',
+					'.git/'
+				],
+				filter: function(filepath) {
+					/*	filter : true(삭제)
+					 * 
+					 */ 
+					// return (grunt.file.isDir(filepath) && require('fs').readdirSync(filepath).length === 0);
+					return true;
+				}
+			}
+        },
+        
 		exec: {
-			initMakeDir: { 
+			init: { 
 				cmd: "cd " + __dirname,
 				callback : function(){
 					var dirs, i;
@@ -62,20 +81,20 @@ module.exports = function(grunt) {
 
 		concat: {
 			ui: {
-				src: ['<%= path.js_src %>ui/js/*.js'],
-				dest: '<%= path.js_dist %>ui.js'
+				src: ['<%= path.js_src %>/ui/js/*.js'],
+				dest: '<%= path.js_dist %>/ui.js'
 			},
 			bootstrap: {
-				src: ['<%= path.js_src %>bootstrap/js/*.js'],
-				dest: '<%= path.js_dist %>bootstrap.js'
+				src: ['<%= path.js_src %>/bootstrap/js/*.js'],
+				dest: '<%= path.js_dist %>/bootstrap.js'
 			}
 		},
 
 		uglify: {
 			dist: {
 				files: {
-					'<%= path.js_dist %>bootstrap.min.js': ['<%= path.js_dist %>bootstrap.js'],
-					'<%= path.js_dist %><%= pkg.name %>.min.js': ['<%= concat.ui.dest %>']
+					'<%= path.js_dist %>/bootstrap.min.js': ['<%= path.js_dist %>/bootstrap.js'],
+					'<%= path.js_dist %>/ui.min.js': ['<%= concat.ui.dest %>/']
 				}
 			}
 		},
@@ -83,12 +102,12 @@ module.exports = function(grunt) {
 		less: {
 			bootstrap: {
 				files: {
-					"<%= path.css_dist %>bootstrap.css": "<%= path.css_src %>bootstrap/less/bootstrap.less"
+					"<%= path.css_dist %>/bootstrap.css": "<%= path.css_src %>/bootstrap/less/bootstrap.less"
 				}
 			},
 			ui: {
 				files: {
-					"<%= path.css_dist %>ui.css": "<%= path.css_src %>ui/less/*.less"
+					"<%= path.css_dist %>/ui.css": "<%= path.css_src %>/ui/less/*.less"
 				}
 			}
 		},
@@ -96,9 +115,9 @@ module.exports = function(grunt) {
 		cssmin : {
 			minify: {
 				expand: true,
-				cwd: '<%= path.css_dist %>',
+				cwd: '<%= path.css_dist %>/',
 				src: ['*.css', '!*.min.css'],
-				dest: '<%= path.css_dist %>',
+				dest: '<%= path.css_dist %>/',
 				ext: '.min.css'
 			}
 		},
@@ -106,26 +125,28 @@ module.exports = function(grunt) {
 		copy: {
 		  bootstrap: {
 		    files: [
-		      {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>/bootstrap/less/'},
-		      {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],     dest: '<%= path.js_src %>/bootstrap/js/'}
+		      {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>//bootstrap/less/'},
+		      {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],     dest: '<%= path.js_src %>//bootstrap/js/'}
 		    ]
 		  }
 		},
 				
 		watch: {
 			less:{
-				files: ['<%= path.css_src %>**/*.less'],
+				files: ['<%= path.css_src %>/**/*.less'],
 				tasks: ['less', 'cssmin']
 			},
 			js:{
-				files: ['<%= path.js_src %>/**/*.js'],
+				files: ['<%= path.js_src %>//**/*.js'],
 				tasks: ['concat', 'uglify']
 			}
 		}
 	});
 
 	// grunt-contrib
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -138,7 +159,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-exec');
 	
 	// Task
-	grunt.registerTask('config', ['exec:initMakeDir', 'copy:bootstrap']);
+	grunt.registerTask('config', ['clean:init', 'exec:init', 'copy:bootstrap']);
 	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'watch']);
 };
 
