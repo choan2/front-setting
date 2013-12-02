@@ -1,4 +1,6 @@
 module.exports = function(grunt) {
+	var path = require('path');
+	
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		path: {
@@ -12,41 +14,41 @@ module.exports = function(grunt) {
 
 		},
 		
-        clean: {
+		clean: {
 			init: {
-				 // src: html/      htmlÆú´õ »èÁ¦
-				 // src: html/**/*  htmlÆú´õ¾È ¸ğµç ³»¿ëÀÌ »èÁ¦µÊ (htmlÆú´õ´Â À¯Áö)
+				 // src: html/	  htmlí´ë” ì‚­ì œ
+				 // src: html/**/*  htmlí´ë”ì•ˆ ëª¨ë“  ë‚´ìš©ì´ ì‚­ì œë¨ (htmlí´ë”ëŠ” ìœ ì§€)
 				src: [
 					'<%= path.css_dist %>/**/*',
 					'<%= path.js_dist %>/**/*',
 					'.git/'
 				],
 				filter: function(filepath) {
-					// filter : true(»èÁ¦)
+					// filter : true(ì‚­ì œ)
 					// return (grunt.file.isDir(filepath) && require('fs').readdirSync(filepath).length === 0);
 					return true;
 				}
 			}
-        },
-        
+		},
+		
 		exec: {
 			init: { 
 				cmd: "cd " + __dirname,
 				callback : function(){
 					var dirs, i;
-		      	
+			  	
 					dirs = [
 						'/css',
-		      		
+			  		
 						'/js/plugin',
 						'/js/vender',
-		      		
+			  		
 						'/source',
 						'/source/bootstrap/less',
 						'/source/bootstrap/js',
 						'/source/ui/less',
 						'/source/ui/js',
-		      		
+			  		
 						'/images/',
 						'/images/common',
 						'/images/layout',
@@ -55,14 +57,14 @@ module.exports = function(grunt) {
 	
 						'/images/main',
 						'/images/sub01',
-		      		
-						'/html',       // (html ÆäÀÌÁö ÀÛ¼º)
+			  		
+						'/html',	   // (html í˜ì´ì§€ ì‘ì„±)
 						'/html/main',
 						'/html/sub01',
-		      		
-						'/html-status', // (ÇöÈ²ÆÇ)
-		      		
-						'/html-guide'  // (°¡ÀÌµå)
+			  		
+						'/html-status', // (í˜„í™©íŒ)
+			  		
+						'/html-guide'  // (ê°€ì´ë“œ)
 					];
 	
 					for(i=0; i<dirs.length; i++){
@@ -71,6 +73,23 @@ module.exports = function(grunt) {
 					}
 				}
 			} // end - initMakeDir
+		},
+		
+		// grunt connect:server:keepalive
+		// http://localhost:9001/index.html
+		connect: {
+			options: {
+				livereload: true
+			},
+			server: {
+				options: {
+					Default: '.', // Defaults to the project Gruntfile's directory.
+					hostname: 'localhost',
+					port: 9001,
+					livereload: true,
+					open: "/html/sample.html"
+				}
+			}
 		},
 		
 		jshint: {},
@@ -92,7 +111,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'<%= path.js_dist %>/bootstrap.min.js': ['<%= path.js_dist %>/bootstrap.js'],
-					'<%= path.js_dist %>/ui.min.js': ['<%= concat.ui.dest %>/']
+					'<%= path.js_dist %>/ui.min.js'       : ['<%= path.js_dist %>/ui.js']
 				}
 			}
 		},
@@ -122,20 +141,30 @@ module.exports = function(grunt) {
 		
 		copy: {
 		  bootstrap: {
-		    files: [
-		      {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>//bootstrap/less/'},
-		      {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],     dest: '<%= path.js_src %>//bootstrap/js/'}
-		    ]
+			files: [
+			  {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>/bootstrap/less/'},
+			  {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],	 dest: '<%= path.js_src %>/bootstrap/js/'}
+			]
 		  }
 		},
 				
 		watch: {
+            livereload: {
+                // options: { livereload: '<%= connect.options.livereload %>' },
+                files: [
+                    'html/**/*.html',
+                    '<%= path.css_src %>/**/*.less',
+                    '<%= path.js_src %>/**/*.js',
+                    '/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
+                ],
+                tasks: ['connect:server:keepalive']
+            },
 			less:{
 				files: ['<%= path.css_src %>/**/*.less'],
 				tasks: ['less', 'cssmin']
 			},
 			js:{
-				files: ['<%= path.js_src %>//**/*.js'],
+				files: ['<%= path.js_src %>/**/*.js'],
 				tasks: ['concat', 'uglify']
 			}
 		}
@@ -144,6 +173,7 @@ module.exports = function(grunt) {
 	// grunt-contrib
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -157,10 +187,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-exec');
 	
 	// Task
-	grunt.registerTask('config', ['clean:init', 'exec:init', 'copy:bootstrap']);
-	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'watch']);
+	// Task - 'clean:init', 
+	
+	grunt.registerTask('config',  ['exec:init', 'copy:bootstrap']);
+	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'connect:server:keepalive', 'watch']);
 };
-
 
 
 
