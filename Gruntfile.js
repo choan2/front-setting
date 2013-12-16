@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 	var path = require('path');
-	
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		path: {
@@ -14,14 +14,15 @@ module.exports = function(grunt) {
 
 		},
 		
+		// 파일,폴더 삭제
 		clean: {
-			init: {
+			install: {
 				 // src: html/	  html폴더 삭제
 				 // src: html/**/*  html폴더안 모든 내용이 삭제됨 (html폴더는 유지)
 				src: [
-					'<%= path.css_dist %>/**/*',
-					'<%= path.js_dist %>/**/*',
-					'.git/'
+					'.git/',
+					'.gitignore',
+					'README.md'
 				],
 				filter: function(filepath) {
 					// filter : true(삭제)
@@ -30,9 +31,14 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		
+
+		// cmd 명령어 실행
 		exec: {
-			init: { 
+			bowerInstall: {
+				cmd: "bower install"
+			},
+			
+			folderInstall: { 
 				cmd: "cd " + __dirname,
 				callback : function(){
 					var dirs, i;
@@ -59,7 +65,6 @@ module.exports = function(grunt) {
 						'/images/sub01',
 			  		
 						'/html',	   // (html 페이지 작성)
-						'/html/main',
 						'/html/sub01',
 			  		
 						'/html-status', // (현황판)
@@ -75,27 +80,24 @@ module.exports = function(grunt) {
 			} // end - initMakeDir
 		},
 		
-		// grunt connect:server:keepalive
-		// http://localhost:9001/index.html
-		connect: {
-			options: {
-				livereload: true
-			},
-			server: {
-				options: {
-					Default: '.', // Defaults to the project Gruntfile's directory.
-					hostname: 'localhost',
-					port: 9001,
-					livereload: true,
-					open: "/html/sample.html"
-				}
+		// 파일복사
+		copy: {
+			bootstrap: {
+				files: [
+					{expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>/bootstrap/less/'},
+					{expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],	 dest: '<%= path.js_src %>/bootstrap/js/'}
+				]
 			}
 		},
 		
+		// jshint - 자바스크립트 코드 검사도구
+		// http://blog.outsider.ne.kr/1007
 		jshint: {},
-		lint: {},
+		
 		qunit: {},
+		mocha: {},
 
+		// 파일 합치기
 		concat: {
 			ui: {
 				src: ['<%= path.js_src %>/ui/js/*.js'],
@@ -107,6 +109,7 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// 자바스크립트 파일 압축하기
 		uglify: {
 			dist: {
 				files: {
@@ -116,6 +119,7 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// less파일 -> css파일로변환
 		less: {
 			bootstrap: {
 				files: {
@@ -129,6 +133,7 @@ module.exports = function(grunt) {
 			}
 		},
 		
+		// .css파일 .min.css 파일로 압축하기
 		cssmin : {
 			minify: {
 				expand: true,
@@ -138,26 +143,34 @@ module.exports = function(grunt) {
 				ext: '.min.css'
 			}
 		},
-		
-		copy: {
-		  bootstrap: {
-			files: [
-			  {expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>/bootstrap/less/'},
-			  {expand:true, cwd:'js/vender/bootstrap/js/',   src: ['*.js'],	 dest: '<%= path.js_src %>/bootstrap/js/'}
-			]
-		  }
+
+		// 서버 실행
+		// grunt connect:server:keepalive
+		// http://localhost:9000/index.html
+		connect: {
+            options: {
+            	livereload: true,
+            	hostname : 'localhost',
+                port: 9002
+            },
+			server: {
+				options: {
+					base: ['.', 'html'],
+					open : "http://localhost:<%= connect.options.port %>/index.html"					
+				} // end - option
+			} // end - server
 		},
-				
+
+		// 실시간 검사하기
 		watch: {
             livereload: {
-                // options: { livereload: '<%= connect.options.livereload %>' },
+	            options: { livereload: true },
                 files: [
                     'html/**/*.html',
-                    '<%= path.css_src %>/**/*.less',
-                    '<%= path.js_src %>/**/*.js',
-                    '/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
-                ],
-                tasks: ['connect:server:keepalive']
+                    '<%= path.css_dist %>/**/*.css',
+                    '<%= path.js_dist %>/**/*.js',
+                    'images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
+                ]
             },
 			less:{
 				files: ['<%= path.css_src %>/**/*.less'],
@@ -170,27 +183,15 @@ module.exports = function(grunt) {
 		}
 	});
 
-	// grunt-contrib
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-connect');
+	// 작업에 필요한 모듈 로드하기
+	// grunt.loadNpmTasks('grunt-ANY-PLUGIN');
+	for (var key in grunt.file.readJSON("package.json").devDependencies) {
+		if (key !== "grunt" && key.indexOf("grunt") === 0) grunt.loadNpmTasks(key);
+	}
 	
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-qunit');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-less');
-
-	// grunt-other
-	grunt.loadNpmTasks('grunt-exec');
-	
-	// Task
-	// Task - 'clean:init', 
-	
-	grunt.registerTask('config',  ['exec:init', 'copy:bootstrap']);
-	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'connect:server:keepalive', 'watch']);
+	// 작업목록
+	grunt.registerTask('config',  ['clean:install', 'exec:folderInstall', 'exec:bowerInstall', 'copy:bootstrap']);
+	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'connect:server', 'watch']);
 };
 
 

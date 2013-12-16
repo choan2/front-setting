@@ -1,18 +1,23 @@
+
 {
 	"name": "app-bower",
 	"version":   "0.1.0",
+	"help": "http://sindresorhus.com/bower-components/",
 	"dependencies": {
-		"modernizr": "",
-		"requirejs": "",
-		
-		"jquery": "1.8.3",
-		"jquery.ui": "",
+		"html5shiv": "*",
 
-		"bootstrap": "",
+		"modernizr": "*",
+		"requirejs": "*",
 		
-		"underscore": "",
-		"backbone": "",
-		"marionette": ""
+		"jquery": "1.10.2",
+		"jquery-migrate": "*",
+		"jquery.ui": "*",
+
+		"bootstrap": "*",
+		
+		"underscore": "*",
+		"backbone": "*",
+		"marionette": "*"
 	}
 }
 

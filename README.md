@@ -1,68 +1,76 @@
-# À¥ÆÛºí¸®½Ì ÀÛ¾÷È¯°æ ¼³Á¤
+# ì›¹í¼ë¸”ë¦¬ì‹± ì‘ì—…í™˜ê²½ ì„¤ì •
 
-À¥ÆÛºí¸®½Ì(html, css, js, less) ¸¦ À§ÇÑ È¯°æ¼³Á¤À» À§ÇØ¼­ ÀÛ¼ºµÈ ÆäÀÌÁö ÀÔ´Ï´Ù.
+ì›¹í¼ë¸”ë¦¬ì‹±(html, css, js, less) ë¥¼ ìœ„í•œ í™˜ê²½ì„¤ì •ì„ ìœ„í•´ì„œ ì‘ì„±ëœ í˜ì´ì§€ ì…ë‹ˆë‹¤.
 
-/publishing/src/ ¹ØÀ¸·Î ÀÛ¼ºµÈ bootstrap(js, less), less, js ´Â Gruntfile.js¿¡ ÀÇÇØ¼­
+/publishing/src/ ë°‘ìœ¼ë¡œ ì‘ì„±ëœ bootstrap(js, less), less, js ëŠ” Gruntfile.jsì— ì˜í•´ì„œ
 
 /publishing/js/,
  
-/publishing/css/ À¸·Î ÀÚµ¿À¸·Î º¯È¯µÇ¾î css,js ÇüÅÂ·Î »ğÀÔµË´Ï´Ù.
+/publishing/css/ ìœ¼ë¡œ ìë™ìœ¼ë¡œ ë³€í™˜ë˜ì–´ css,js í˜•íƒœë¡œ ì‚½ì…ë©ë‹ˆë‹¤.
 
 
-## Æú´õ±¸Á¶
+## í´ë”êµ¬ì¡°
 ```
 publishing/
-¦§¦¡¦¡ js/
-¦¢   ¦§¦¡¦¡ ui.js
-¦¢   ¦§¦¡¦¡ ui.min.js
-¦¢   ¦§¦¡¦¡ bootstrap.js
-¦¢   ¦§¦¡¦¡ bootstrap.min.js
-¦¢   ¦§¦¡¦¡ plugin/
-¦¢   ¦¦¦¡¦¡ vender/ (bower¿¡ ÀÇÇØ¼­ ¼³Ä¡µÇ´Â ÆÄÀÏ(¼öÁ¤x : ¼öÁ¤½Ã publishing/js/ ¹ØÀ¸·Î ÀÌµ¿))
-¦¢        ¦§¦¡¦¡ modernizr/
-¦¢        ¦§¦¡¦¡ requirejs/
-¦¢        ¦§¦¡¦¡ jquery/
-¦¢        ¦§¦¡¦¡ jquery.ui/
-¦¢        ¦§¦¡¦¡ bootstrap/
-¦¢        ¦§¦¡¦¡ underscore/
-¦¢        ¦§¦¡¦¡ backbone/
-¦¢        ¦¦¦¡¦¡ marionette/
-¦¢
-¦§¦¡¦¡ css/
-¦¢   ¦§¦¡¦¡ ui.css
-¦¢   ¦§¦¡¦¡ ui.min.css
-¦¢   ¦§¦¡¦¡ bootstrap.css
-¦¢   ¦¦¦¡¦¡ bootstrap.min.css
-¦¢
-¦§¦¡¦¡ src/ (src/ÆÄÀÏÀº Gruntfile.js ¼³Á¤¿¡ µû¶ó publishing/js,css·Î ÄÄÆÄÀÏ µË´Ï´Ù.)
-¦¢   ¦§¦¡¦¡ bootstrap/
-¦¢   ¦¢    ¦§¦¡¦¡ less/
-¦¢   ¦¢    ¦¦¦¡¦¡ js/
-¦¢   ¦¦¦¡¦¡ ui/
-¦¢        ¦§¦¡¦¡ less/
-¦¢        ¦¦¦¡¦¡ js/
-¦¢
-¦§¦¡¦¡ images/
-¦¢
-¦§¦¡¦¡ html/ (html ÆäÀÌÁö ÀÛ¼º)
-¦¢   ¦¦¦¡¦¡ index.html
-¦¢
-¦§¦¡¦¡ html-status/ (ÇöÈ²ÆÇ)
-¦¢
-¦¦¦¡¦¡ html-guide/ (°¡ÀÌµå)
+â”œâ”€â”€ js/
+â”‚   â”œâ”€â”€ ui.js
+â”‚   â”œâ”€â”€ ui.min.js
+â”‚   â”œâ”€â”€ bootstrap.js
+â”‚   â”œâ”€â”€ bootstrap.min.js
+â”‚   â”œâ”€â”€ plugin/
+â”‚   â””â”€â”€ vender/ (bowerì— ì˜í•´ì„œ ì„¤ì¹˜ë˜ëŠ” íŒŒì¼(ìˆ˜ì •x : ìˆ˜ì •ì‹œ publishing/js/ ë°‘ìœ¼ë¡œ ì´ë™))
+â”‚        â”œâ”€â”€ html5shiv/
+â”‚        â”œâ”€â”€ modernizr/
+â”‚        â”œâ”€â”€ requirejs/
+â”‚        â”œâ”€â”€ jquery/
+â”‚        â”œâ”€â”€ jquery-migrate/
+â”‚        â”œâ”€â”€ jquery.ui/
+â”‚        â”œâ”€â”€ bootstrap/
+â”‚        â”œâ”€â”€ underscore/
+â”‚        â”œâ”€â”€ backbone/
+â”‚        â”œâ”€â”€ marionette/
+â”‚        â”œâ”€â”€ :
+â”‚        â””â”€â”€ :
+â”‚
+â”œâ”€â”€ css/
+â”‚   â”œâ”€â”€ ui.css
+â”‚   â”œâ”€â”€ ui.min.css
+â”‚   â”œâ”€â”€ bootstrap.css
+â”‚   â””â”€â”€ bootstrap.min.css
+â”‚
+â”œâ”€â”€ src/ (src/íŒŒì¼ì€ Gruntfile.js ì„¤ì •ì— ë”°ë¼ publishing/js,cssë¡œ ì»´íŒŒì¼ ë©ë‹ˆë‹¤.)
+â”‚   â”œâ”€â”€ bootstrap/
+â”‚   â”‚    â”œâ”€â”€ less/
+â”‚   â”‚    â””â”€â”€ js/
+â”‚   â””â”€â”€ ui/
+â”‚        â”œâ”€â”€ less/
+â”‚        â””â”€â”€ js/
+â”‚
+â”œâ”€â”€ images/
+â”‚   â”œâ”€â”€ common/
+â”‚   â”œâ”€â”€ layout/
+â”‚   â”œâ”€â”€ icon/
+â”‚   â””â”€â”€ btn/
+â”‚
+â”œâ”€â”€ html/ (html í˜ì´ì§€ ì‘ì„±)
+â”‚   â”œâ”€â”€ index.html
+â”‚   â””â”€â”€ sub01/
+â”‚
+â”œâ”€â”€ html-status/ (í˜„í™©íŒ)
+â”‚
+â””â”€â”€ html-guide/ (ê°€ì´ë“œ)
 ```
 
-## ¿ä±¸»çÇ×
-1. node.js¼³Ä¡ : http://nodejs.org/
-2. bower ¼³Ä¡  : cmd Ã¢¿¡¼­ ¼³Ä¡ npm install -g bower 
-3. grunt ¼³Ä¡  : cmd Ã¢¿¡¼­ ¼³Ä¡ npm install -g grunt-cli
+## ìš”êµ¬ì‚¬í•­
+1. node.jsì„¤ì¹˜ : http://nodejs.org/
+2. bower ì„¤ì¹˜  : cmd ì°½ì—ì„œ ì„¤ì¹˜ npm install -g bower 
+3. grunt ì„¤ì¹˜  : cmd ì°½ì—ì„œ ì„¤ì¹˜ npm install -g grunt-cli
 
-## Àû¿ëÇÏ±â
-1. git clone git@github.com:ace4gi/setting.git ½ÇÇà
-2. bower install ½ÇÇà
-3. npm install ½ÇÇà
-4. grunt config ½ÇÇà
-4. grunt ½ÇÇà
+## ì ìš©í•˜ê¸°
+1. cmd ëª…ë ¹ì–´ ì‹¤í–‰ : git clone git@github.com:ace4gi/setting.git í”„ë¡œì íŠ¸ëª…
+2. cmd ëª…ë ¹ì–´ ì‹¤í–‰ : npm install
+3. cmd ëª…ë ¹ì–´ ì‹¤í–‰ : grunt config
+4. cmd ëª…ë ¹ì–´ ì‹¤í–‰ : grunt
 
 
 
