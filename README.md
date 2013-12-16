@@ -64,16 +64,16 @@ publishing/
 ## 요구사항 설치
 
 1. node.js  : [http://nodejs.org/](http://nodejs.org/)
-2. bower    : `윈도우키` -> `실행` -> `cmd` -> `npm install -g bower` 
-3. grunt    : `윈도우키` -> `실행` -> `cmd` -> `npm install -g grunt-cli`
+2. bower    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install -g bower` 
+3. grunt    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install -g grunt-cli`
 
 
 ## 적용하기
 
-1. `윈도우키` -> `실행` -> `cmd` -> `git clone https://github.com/ace4gi/setting.git 프로젝트명`
-2. `윈도우키` -> `실행` -> `cmd` -> `npm install`
-3. `윈도우키` -> `실행` -> `cmd` -> `grunt config`
-4. `윈도우키` -> `실행` -> `cmd` -> `grunt`
+1. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `git clone https://github.com/ace4gi/setting.git 프로젝트명`
+2. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install`
+3. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `grunt config`
+4. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `grunt`
 
 
 
