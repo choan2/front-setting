@@ -9,7 +9,7 @@
 /publishing/css/ 으로 자동으로 변환되어 css,js 형태로 삽입됩니다.
 
 
-## 폴더구조
+## 작설될 폴더구조
 ```
 publishing/
 ├── js/
@@ -61,9 +61,9 @@ publishing/
 └── html-guide/ (가이드)
 ```
 
-## 요구사항
+## 요구사항 설치
 
-1. node.js설치 : `http://nodejs.org/`
+1. node.js설치 : [http://nodejs.org/](http://nodejs.org/)
 2. bower 설치  : cmd 명령어 실행 `npm install -g bower` 
 3. grunt 설치  : cmd 명령어 실행 `npm install -g grunt-cli`
 
