@@ -9,7 +9,7 @@
 /publishing/css/ 으로 자동으로 변환되어 css,js 형태로 삽입됩니다.
 
 
-## 작설될 폴더구조
+## 폴더구조
 ```
 publishing/
 ├── js/
