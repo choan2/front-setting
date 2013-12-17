@@ -1,3 +1,4 @@
+
 module.exports = function(grunt) {
 	var path = require('path');
 
@@ -195,10 +196,8 @@ module.exports = function(grunt) {
 	}
 	
 	// 작업목록
-	grunt.registerTask('config',  ['clean:install', 'exec:folderInstall', 'exec:bowerInstall', 'copy:bootstrap']);
+	grunt.registerTask('config',  ['clean:install', 'exec:folderInstall', 'exec:bowerInstall', 'copy']);
 	grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'connect:server', 'watch']);
 };
-
-
 
 
