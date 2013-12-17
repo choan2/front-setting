@@ -72,7 +72,7 @@ publishing/
 
 c:\project\test 이라는 프로젝트를 시작할 경우로 설명
 
-1. `윈도우키` ＞ `실행` ＞ `cmd` ＞ 'cd c:\project' 
+1. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `cd c:\project` 
 2. `git clone https://github.com/ace4gi/setting.git test`
 3. `프로젝트 폴더로 이동` ＞ `npm install`
 4. `grunt config`
