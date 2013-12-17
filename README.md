@@ -78,7 +78,7 @@ c:\project\test 이라는 프로젝트를 시작할 경우로 설명
 2. `git clone https://github.com/ace4gi/setting.git test`
 3. `cd test` ＞ `npm install`
 4. `grunt config`
-5. `grunt`
+5. `grunt` (서버 종료시 ctrl+C)
 
 
 
