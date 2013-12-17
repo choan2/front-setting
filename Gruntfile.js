@@ -64,12 +64,12 @@ module.exports = function(grunt) {
 						'/images/main',
 						'/images/sub01',
 			  		
-						'/html',	   // (html 페이지 작성)
-						'/html/sub01',
+						'/html',	       // (html 페이지 작성)
+						// '/html/sub01',  // (서브페이지 폴더 세팅)
 			  		
-						'/html-status', // (현황판)
+						'/html-status',    // (현황판)
 			  		
-						'/html-guide'  // (가이드)
+						'/html-guide'      // (가이드)
 					];
 	
 					for(i=0; i<dirs.length; i++){
