@@ -71,9 +71,9 @@ publishing/
 ## 적용하기
 
 1. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `git clone git@github.com:ace4gi/setting.git 프로젝트명`
-2. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install`
-3. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `grunt config`
-4. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `grunt`
+2. `프로젝트 폴더로 이동` ＞ `npm install`
+3. `grunt config`
+4. `grunt`
 
 
 
