@@ -4,6 +4,8 @@
 	"version":   "0.1.0",
 	"help": "http://sindresorhus.com/bower-components/",
 	"dependencies": {
+		"setting-scaffolding": "*",
+	
 		"html5shiv": "*",
 
 		"modernizr": "*",
