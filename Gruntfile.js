@@ -82,6 +82,11 @@ module.exports = function(grunt) {
 		
 		// 파일복사
 		copy: {
+			html: {
+				files: [
+					{expand:true, cwd:'js/vender/setting-scaffolding/', src: ['*.html'],   dest: 'html/'}
+				]
+			},
 			bootstrap: {
 				files: [
 					{expand:true, cwd:'js/vender/bootstrap/less/', src: ['*.less'],   dest: '<%= path.css_src %>/bootstrap/less/'},
