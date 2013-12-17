@@ -61,7 +61,7 @@ publishing/
 └── html-guide/ (가이드)
 ```
 
-## 요구사항 설치 (1회 설정 필요)
+## 요구사항 설치
 
 1. [node.js](http://nodejs.org/)  : [http://nodejs.org/](http://nodejs.org/) 설치파일 다운후 설치
 2. [bower](http://bower.io/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install -g bower` 
