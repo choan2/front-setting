@@ -5,6 +5,8 @@
         "start": "node app.js"
     },
 	"devDependencies": {
+		"bower-installer": "*",
+	
 		"grunt": "~0.4.1",
 		"grunt-contrib-clean": "*",
 		"grunt-contrib-copy": "*",

@@ -4,50 +4,41 @@ xxxxxxxxxxx.col.kr
 
 ## 폴더구조
 ```
-프로젝트 이름/
+│dist/      (산출물폴더 : 자동생성)
+│
+│source/    (작업폴더)
 ├── js/
-│   ├── ui.js
-│   ├── ui.min.js
-│   ├── bootstrap.js
-│   ├── bootstrap.min.js
-│   ├── plugin/
-│   └── vender/ (bower에 의해서 설치되는 파일(수정x : 수정시 publishing/js/ 밑으로 이동))
-│        ├── html5shiv/
-│        ├── modernizr/
-│        ├── requirejs/
-│        ├── jquery/
-│        ├── jquery-migrate/
-│        ├── jquery.ui/
-│        ├── bootstrap/
-│        ├── underscore/
-│        ├── backbone/
-│        ├── marionette/
+│   ├── ui
+│   │    ├── test1.js
+│   │    └── test2.js
+│   │
+│   ├── bootstrap
+│   │    ├── test1.js
+│   │    ├── test1.js
+│   │    └── test2.js
+│   │
+│   └── vender/ (bower에 의해서 설치되는 파일(직접수정x))
+│        ├── affix.js
+│        ├── alert.js
+│        ├── button.js
+│        ├── collapse.js
 │        ├── :
 │        └── :
 │
-├── css/
-│   ├── ui.css
-│   ├── ui.min.css
-│   ├── bootstrap.css
-│   └── bootstrap.min.css
-│
-├── src/ (src/파일은 Gruntfile.js 설정에 따라 publishing/js,css로 컴파일 됩니다.)
-│   ├── bootstrap/
-│   │    ├── less/
-│   │    └── js/
-│   └── ui/
-│        ├── less/
-│        └── js/
+├── less/
+│   ├── ui
+│   │    ├── test1.less
+│   │    └── test2.less
+│   │
+│   └── bootstrap
+│        ├── test1.less
+│        ├── test1.less
+│        └── test2.less
 │
 ├── images/
-│   ├── common/
-│   ├── layout/
-│   ├── icon/
-│   └── btn/
 │
 ├── html/ (html 페이지 작성)
-│   ├── index.html
-│   └── sub01/
+│   └── index.html
 │
 ├── html-status/ (현황판)
 │
