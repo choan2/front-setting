@@ -3,9 +3,5 @@
 
 node_modules/
 
-js/vender/
-
-source/bootstrap/
-
-!empty.gitignore
+source/vender/
 
