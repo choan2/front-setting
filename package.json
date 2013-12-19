@@ -7,7 +7,7 @@
     "scripts": { "test": "setting" },
     "main": "index",
 	"bin": {
-		"setting": "./bin/setting"
+		"setting": "./bin/front-setting"
 	},
     
 	"devDependencies": {

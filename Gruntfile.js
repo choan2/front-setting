@@ -73,11 +73,11 @@ module.exports = function(grunt) {
 			scaffolding: {
 				files: [
 					// index.html
-					{expand:true, cwd:'<%= path.source %>/js/vender/setting-scaffolding/', src: ['*.html'], dest: '<%= path.source %>/html/'},
+					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/', src: ['*.html'], dest: '<%= path.source %>/html/'},
 					
 					// scaffolding
-					{expand:true, cwd:'<%= path.source %>/js/vender/setting-scaffolding/less/', src: ['*.less'], dest: '<%= path.source %>/less/ui'},
-					{expand:true, cwd:'<%= path.source %>/js/vender/setting-scaffolding/js/',   src: ['*.js'],	 dest: '<%= path.source %>/js/ui'},
+					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/less/', src: ['*.less'], dest: '<%= path.source %>/less/ui'},
+					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/js/',   src: ['*.js'],	 dest: '<%= path.source %>/js/ui'},
 					
 					// bootstrap
 					{expand:true, cwd:'<%= path.source %>/js/vender/bootstrap/less/', src: ['*.less'], dest: '<%= path.source %>/less/bootstrap'},
