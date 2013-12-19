@@ -50,19 +50,19 @@ xxxxxxxxxxx.col.kr
 ## 요구사항 설치
 1. 버전관리 : [git설치](http://msysgit.github.io/)
 2. [node.js](http://nodejs.org/)  : [http://nodejs.org/](http://nodejs.org/) 설치파일 다운후 설치
-3. [bower](http://bower.io/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install -g bower` 
-4. [grunt](http://gruntjs.com/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install -g grunt-cli`
+3. [bower](http://bower.io/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install bower -g` 
+4. [grunt](http://gruntjs.com/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install grunt-cli -g`
+5. front-setting    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install front-setting -g`
 
 
 ## 적용하기
 
 c:\project\test 이라는 프로젝트를 시작할 경우로 설명
 
-1. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `cd c:\project` 
-2. `git clone https://github.com/ace4gi/setting.git test`
-3. `cd test` ＞ `npm install`
-4. `grunt config`
-5. `grunt` (종료시 ctrl+C)
+1. `윈도우키` ＞ `실행` ＞ `cmd` ＞ 프로젝트 폴더로 이동 `cd c:\project\test`
+3. `cd test` ＞ `npm install front-setting`
+4. `grunt config` 코딩환경 구축
+5. `grunt` (종료시 ctrl+C) 코딩 서버 실행
 
 
 
