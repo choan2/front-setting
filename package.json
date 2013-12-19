@@ -1,12 +1,16 @@
 {
-	"name": "ui",
-	"version": "0.1.0",
-    "scripts": {
-        "start": "node app.js"
-    },
+	"name": "setting",
+	"description": "font-end setting",
+	"version": "0.0.1",
+	"author": "ji man, lee",
+	"engines": { "node": ">= 0.4.0" }, 
+    "scripts": { "test": "setting" },
+    "main": "index",
+	"bin": {
+		"setting": "./bin/setting"
+	},
+    
 	"devDependencies": {
-		"bower-installer": "*",
-	
 		"grunt": "~0.4.1",
 		"grunt-contrib-clean": "*",
 		"grunt-contrib-copy": "*",
@@ -22,3 +26,4 @@
 		"grunt-exec": "*"
 	}
 }
+
