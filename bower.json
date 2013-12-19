@@ -5,7 +5,7 @@
 	"help": "http://sindresorhus.com/bower-components/",
 	
 	"dependencies": {
-		"setting-scaffolding": "latest",
+		"front-setting-scaffolding": "latest",
 	
 		"html5shiv": "latest",
 

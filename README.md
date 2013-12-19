@@ -60,9 +60,13 @@ xxxxxxxxxxx.col.kr
 c:\project\test 이라는 프로젝트를 시작할 경우로 설명
 
 1. `윈도우키` ＞ `실행` ＞ `cmd` ＞ 프로젝트 폴더로 이동 `cd c:\project\test`
-3. `cd test` ＞ `npm install front-setting`
-4. `grunt config` 코딩환경 구축
-5. `grunt` (종료시 ctrl+C) 코딩 서버 실행
+
+2. `npm install front-setting`
+3. `front-setting` : 생성된 Gruntfile.js, bower.json, .bowerrc 으로 프로젝트 세팅
+
+3. `npm install`
+4. `grunt config` : 코딩환경 구축
+5. `grunt` : 코딩 서버 실행 (종료시 ctrl+C)
 
 
 
