@@ -1,13 +1,13 @@
 {
 	"name": "front-setting",
 	"description": "font-end setting",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"author": "ji man, lee",
 	"engines": { "node": ">= 0.10.22" }, 
-    "scripts": { "test": "setting" },
+    "scripts": { "test": "front-setting" },
     "main": "index",
 	"bin": {
-		"setting": "./bin/front-setting"
+		"front-setting": "./bin/front-setting"
 	},
     
 	"devDependencies": {
