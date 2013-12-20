@@ -6,7 +6,7 @@
 	
 	"dependencies": {
 		"front-setting-scaffolding": "latest",
-	
+
 		"html5shiv": "latest",
 
 		"modernizr": "latest",

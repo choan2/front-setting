@@ -1,29 +1,37 @@
 {
-	"name": "front-setting",
-	"description": "font-end setting",
-	"version": "0.0.4",
-	"author": "ji man, lee",
-	"engines": { "node": ">= 0.10.22" }, 
-    "scripts": { "test": "front-setting" },
-    "main": "index",
-	"bin": {
-		"front-setting": "./bin/front-setting"
-	},
-    
-	"devDependencies": {
-		"grunt": "~0.4.1",
-		"grunt-contrib-clean": "*",
-		"grunt-contrib-copy": "*",
-		"grunt-contrib-less": "*",
-		"grunt-contrib-cssmin": "*",
-		"grunt-contrib-concat": "*",
-		"grunt-contrib-uglify": "*",
-		"grunt-contrib-jshint": "*",
-		"grunt-contrib-qunit": "*",
-		"grunt-contrib-connect": "*",
-		"grunt-contrib-watch": "*",
-		
-		"grunt-exec": "*"
-	}
+  "name": "front-setting",
+  "description": "font-end setting",
+  "version": "0.0.3",
+  "author": {
+    "name": "ji man, lee"
+  },
+  "engines": {
+    "node": ">= 0.10.22"
+  },
+  "scripts": {
+    "test": "front-setting"
+  },
+  "main": "index",
+  "bin": {
+    "front-setting": "./bin/front-setting"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+	"grunt-contrib-imagemin": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-qunit": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-exec": "*"
+  },
+  "readme": "# 웹퍼블리싱 작업환경 설정\r\n\r\nxxxxxxxxxxx.col.kr\r\n\r\n## 폴더구조\r\n```\r\n┌── dist/      (산출물폴더 : 자동생성)\r\n│\r\n├── source/    (작업폴더)\r\n│   ├── js/\r\n│   │   ├── ui\r\n│   │   │    ├── test1.js\r\n│   │   │    └── test2.js\r\n│   │   │\r\n│   │   ├── bootstrap\r\n│   │   │    ├── test1.js\r\n│   │   │    ├── test1.js\r\n│   │   │    └── test2.js\r\n│   │   │\r\n│   │   └── vender/ (bower에 의해서 설치되는 파일(직접수정x))\r\n│   │        ├── affix.js\r\n│   │        ├── alert.js\r\n│   │        ├── button.js\r\n│   │        ├── collapse.js\r\n│   │        ├── :\r\n│   │        └── :\r\n│   │\r\n│   ├── less/\r\n│   │   ├── ui\r\n│   │   │    ├── test1.less\r\n│   │   │    └── test2.less\r\n│   │   │\r\n│   │   └── bootstrap\r\n│   │        ├── test1.less\r\n│   │        ├── test1.less\r\n│   │        └── test2.less\r\n│   │\r\n│   ├── images/\r\n│   │\r\n│   ├── html/ (html 페이지 작성)\r\n│   │   └── index.html\r\n│   │\r\n│   ├── html-status/ (현황판)\r\n│   │\r\n│   └── html-guide/ (가이드)\r\n│\r\n└ node_modules (grunt로 자동화 하기 위해서 필요한 node 패키지들)\r\n```\r\n\r\n## 요구사항 설치\r\n1. 버전관리 : [git설치](http://msysgit.github.io/)\r\n2. [node.js](http://nodejs.org/)  : [http://nodejs.org/](http://nodejs.org/) 설치파일 다운후 설치\r\n3. [bower](http://bower.io/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install -g bower` \r\n4. [grunt](http://gruntjs.com/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install -g grunt-cli`\r\n\r\n\r\n## 적용하기\r\n\r\nc:\\project\\test 이라는 프로젝트를 시작할 경우로 설명\r\n\r\n1. `윈도우키` ＞ `실행` ＞ `cmd` ＞ `cd c:\\project` \r\n2. `git clone https://github.com/ace4gi/setting.git test`\r\n3. `cd test` ＞ `npm install`\r\n4. `grunt config`\r\n5. `grunt` (종료시 ctrl+C)\r\n\r\n\r\n\r\n",
+  "readmeFilename": "README.md",
+  "_id": "front-setting@0.0.3",
+  "_from": "front-setting@"
 }
-

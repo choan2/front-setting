@@ -1,6 +1,6 @@
 # 웹퍼블리싱 작업환경 설정
 
-xxxxxxxxxxx.col.kr
+source/ 에서 작업을 하면 dist/ 으로 산출물이 만들어집니다.
 
 ## 폴더구조
 ```
