@@ -1,5 +1,11 @@
 var _options = {
-	language : "html", // html, asp, jsp, php
+	encoding : 'utf8',
+	lang : "jsp", // html, asp, jsp, php 중 선택
+	langInclude : {
+		php : '<? include $_SERVER["DOCUMENT_ROOT"]."url.html"; ?>',
+		asp : '<!-- #include virtual="url.html" -->',
+		jsp : '<%@ include file="url.html" %>'
+	},
 	path : {
 		source : "source",
 		dist   : "dist"
@@ -13,7 +19,7 @@ var _options = {
 		"images"      : "images",
 		"less"        : "less",
 		"js"          : "js"
-	} 
+	}
 }
 
 module.exports = function(grunt) {
@@ -256,16 +262,12 @@ module.exports = function(grunt) {
 	 * http://gruntjs.com/api/grunt.file
 	 */ 
 	grunt.event.on('watch', function(action, filepath) {
-		var isIncludeFile = filepath.indexOf(path.normalize("/" + _options.dir.include + "/")) !== -1,
-			isHTML        = filepath.indexOf("." + _options.dir.html) !== -1,
-			isImage       = filepath.indexOf(path.normalize("/" + _options.dir.images  + "/")) !== -1;
-
-		console.log("-include--------------------------------------------- \\" + isIncludeFile);
-		console.log("-html   --------------------------------------------- \\" + isImage);
+		var isIncludeFile = filepath.indexOf("\\" + _options.dir.include + "\\") !== -1,
+			isHTML        = filepath.indexOf("."  + _options.dir.html) !== -1,
+			isImage       = filepath.indexOf("\\" + _options.dir.images + "\\") !== -1;
 
 		if( isIncludeFile ){
 			includeAll();
-			console.log(1);
 			
 		}else if( isHTML ){
 			var srcAbsPath  = path.normalize(__dirname + "/" + filepath),
@@ -281,10 +283,7 @@ module.exports = function(grunt) {
 
 	// root밑에 모든파일 inlcude 처리해서 dist에 생성
 	function includeAll(){
-		/* __dirname : D:\Workspace\test1
-		 *  filepath : source\html\index.html
-		 */ 
-		var rootdir = path.normalize(__dirname + "/" + _options.path.source + "/" + _options.dir.html);
+		var rootdir = __dirname + "/" + _options.path.source + "/" + _options.dir.html;
 		
 		grunt.file.recurse(rootdir, function(abspath, rootdir, subdir, filename){
 			include(abspath, abspath.replace(_options.path.source, _options.path.dist));
@@ -294,17 +293,34 @@ module.exports = function(grunt) {
 
 	// 1개 파일 inlcude 처리해서 dist에 생성
 	function include(srcAbsPath, destAbsPath){
-		var doc = grunt.file.read(srcAbsPath, {encoding : 'utf8'}),
-			reg = new RegExp(/(?:<!--<%=include:)([^%]*)(?:%>-->)/);
-	
+		var doc = grunt.file.read(srcAbsPath, {encoding : _options.encoding}),
+			reg = new RegExp(/(?:<!--<%=include:)([^%]*)(?:%>-->)/),
+			lang = _options.lang,
+			langInclude = _options.langInclude[lang],
+			
+			filePath = "",    // source\html\index.html
+			includeFileContents = ""; // 인클루드로 들어올 파일 내용
+
 		/* __dirname : D:\Workspace\test1
 		 *  filepath : source\html\index.html
 		 */ 
+		 
 		while( reg.test(doc) ){
-			var includeFileTxt = grunt.file.read(__dirname + '/' + _options.path.source + '/' + _options.dir.html + '/' + RegExp.$1, {encoding : 'utf8'});				
-			doc = doc.replace(reg, includeFileTxt);
+			filePath = RegExp.$1;
+
+			if( !! langInclude ){
+				// asp, jsp, php
+				filePath = filePath.replace('.html', '.'+lang);
+				doc = doc.replace(reg, langInclude.replace("url.html", filePath));
+				
+			}else{
+				// html
+				includeFileContents = grunt.file.read(__dirname + '/' + _options.path.source + '/' + _options.dir.html + '/' + filePath, {encoding : _options.encoding});	
+				doc = doc.replace(reg, includeFileContents);
+			}
 		}
-		grunt.file.write(destAbsPath, doc, {encoding : 'utf8'});
+		destAbsPath = destAbsPath.replace('.html', '.'+lang);
+		grunt.file.write(destAbsPath, doc, {encoding : _options.encoding});
 	}
 
 
@@ -318,12 +334,15 @@ module.exports = function(grunt) {
 
 	// 작업목록
 	grunt.registerTask('config',  ['clean:git', 'exec:createFolder', 'exec:installBower', 'copy:scaffolding']);
+	
 	grunt.registerTask('compile', ['concat:dist', 'less:dist', 'uglify:dist', 'cssmin:dist']);
 	
 	grunt.registerTask('dist',    ['clean:dist', 'compile', 'copy:vender', 'imagemin:dist', 'copyHtml']);
 	grunt.registerTask('server',  ['connect:server', 'watch']);
 
 	grunt.registerTask('default', ['dist', 'connect:server', 'watch']);
+	
+	grunt.registerTask('test', []);
 };
 
 
