@@ -101,7 +101,7 @@ module.exports = function(grunt) {
 					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/html', src: ['index.html'], dest: '<%= path.source %>/'+_options.dir.html},
 					
 					// include
-					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/include', src: ['index.html'], dest: '<%= path.source %>/'+_options.dir.include},
+					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/include', src: ['*.*'], dest: '<%= path.source %>/'+_options.dir.include},
 					
 					// scaffolding
 					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/less', src: ['*.less'], dest: '<%= path.source %>/less/ui'},
@@ -178,7 +178,7 @@ module.exports = function(grunt) {
 		less: {
 			dist: {
 				files: {
-					'<%= path.dist %>/css/ui.css'        : ['<%= path.source %>/less/ui/*.less'],
+					'<%= path.dist %>/css/ui.css'        : ['<%= path.source %>/less/ui/ui.less'],
 					'<%= path.dist %>/css/bootstrap.css' : ['<%= path.source %>/less/bootstrap/bootstrap.less'] 
 				}
 			}
