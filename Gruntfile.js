@@ -1,6 +1,6 @@
 var _options = {
 	encoding : 'utf8',
-	lang : "jsp", // html, asp, jsp, php 중 선택
+	lang : "html", // html, asp, jsp, php 중 선택
 	langInclude : {
 		php : '<? include $_SERVER["DOCUMENT_ROOT"]."url.html"; ?>',
 		asp : '<!-- #include virtual="url.html" -->',
