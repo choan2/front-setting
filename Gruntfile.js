@@ -15,7 +15,7 @@ var _options = {
 		"html-status" : "html-status",
 		"html-guide"  : "html-guide",
 		
-		"include "    : "html/include",
+		"include"    : "html/include",
 		"images"      : "images",
 		"less"        : "less",
 		"js"          : "js"
@@ -98,15 +98,18 @@ module.exports = function(grunt) {
 			scaffolding: {
 				files: [
 					// index.html
-					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/', src: ['*.html'], dest: '<%= path.source %>/html/'},
+					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/html', src: ['index.html'], dest: '<%= path.source %>/'+_options.dir.html},
+					
+					// include
+					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/include', src: ['index.html'], dest: '<%= path.source %>/'+_options.dir.include},
 					
 					// scaffolding
-					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/less/', src: ['*.less'], dest: '<%= path.source %>/less/ui'},
-					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/js/',   src: ['*.js'],	 dest: '<%= path.source %>/js/ui'},
+					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/less', src: ['*.less'], dest: '<%= path.source %>/less/ui'},
+					{expand:true, cwd:'<%= path.source %>/js/vender/front-setting-scaffolding/js',   src: ['*.js'],	 dest: '<%= path.source %>/js/ui'},
 					
 					// bootstrap
-					{expand:true, cwd:'<%= path.source %>/js/vender/bootstrap/less/', src: ['*.less'], dest: '<%= path.source %>/less/bootstrap'},
-					{expand:true, cwd:'<%= path.source %>/js/vender/bootstrap/js/',   src: ['*.js'],   dest: '<%= path.source %>/js/bootstrap'}
+					{expand:true, cwd:'<%= path.source %>/js/vender/bootstrap/less', src: ['*.less'], dest: '<%= path.source %>/less/bootstrap'},
+					{expand:true, cwd:'<%= path.source %>/js/vender/bootstrap/js',   src: ['*.js'],   dest: '<%= path.source %>/js/bootstrap'}
 				]
 			},
 			
