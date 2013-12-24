@@ -265,11 +265,14 @@ module.exports = function(grunt) {
 	 * http://gruntjs.com/api/grunt.file
 	 */ 
 	grunt.event.on('watch', function(action, filepath) {
-		var isIncludeFile = filepath.indexOf("\\" + _options.dir.include + "\\") !== -1,
+		var isIncludeFile = filepath.indexOf(path.normalize("/" + _options.dir.include + "/")) !== -1,
 			isHTML        = filepath.indexOf("."  + _options.dir.html) !== -1,
-			isImage       = filepath.indexOf("\\" + _options.dir.images + "\\") !== -1;
+			isImage       = filepath.indexOf(path.normalize("/" + _options.dir.images  + "/")) !== -1;
+
+		console.log( '-----========-----', isIncludeFile, isHTML, isImage );
 
 		if( isIncludeFile ){
+			console.log( '----- includeAll -----' );
 			includeAll();
 			
 		}else if( isHTML ){
@@ -286,7 +289,7 @@ module.exports = function(grunt) {
 
 	// root밑에 모든파일 inlcude 처리해서 dist에 생성
 	function includeAll(){
-		var rootdir = __dirname + "/" + _options.path.source + "/" + _options.dir.html;
+		var rootdir = path.normalize(__dirname + "/" + _options.path.source + "/" + _options.dir.html);
 		
 		grunt.file.recurse(rootdir, function(abspath, rootdir, subdir, filename){
 			include(abspath, abspath.replace(_options.path.source, _options.path.dist));
