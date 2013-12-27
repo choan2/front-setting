@@ -258,7 +258,7 @@ module.exports = function(grunt) {
 	/*
 	 * html 생성 (include 처리)
 	 */
-	grunt.task.registerTask("copyHtml", includeAll)
+	grunt.task.registerTask("copyHtml", includeAll);
 	
 
 	/* html 이미지 변경시 dist으로 수정된 파일 복사
