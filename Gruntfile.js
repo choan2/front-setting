@@ -118,6 +118,8 @@ module.exports = function(grunt) {
 				cwd: '<%= path.source %>/js/vender',
 				src: [
 					"html5shiv/dist/html5shiv.js",
+					"respond/dest/respond.min.js",
+					
 					"modernizr/modernizr.js",
 					
 					"jquery/jquery.min.js",

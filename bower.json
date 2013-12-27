@@ -8,6 +8,7 @@
 		"front-setting-scaffolding": "latest",
 
 		"html5shiv": "latest",
+		"respond": "latest",
 
 		"modernizr": "latest",
 		"requirejs": "latest",
