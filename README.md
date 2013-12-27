@@ -48,8 +48,8 @@ source/ 에서 작업을 하면 dist/ 으로 산출물이 만들어집니다.
 ```
 
 ## 요구사항 설치
-1. 버전관리 : [git설치](http://msysgit.github.io/) |
-	설치시 필수 옵션 체크 - Run Git from the Window Command Prompt 
+1. 버전관리 : [git설치](http://msysgit.github.io/)
+	'설치시 필수 옵션 체크 - Run Git from the Window Command Prompt' 
 2. [node.js](http://nodejs.org/)  : [http://nodejs.org/](http://nodejs.org/) 설치파일 다운후 설치
 3. [bower](http://bower.io/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install bower -g` 
 4. [grunt](http://gruntjs.com/)    : `윈도우키` ＞ `실행` ＞ `cmd` ＞ `npm install grunt-cli -g`
