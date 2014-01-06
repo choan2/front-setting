@@ -1,3 +1,6 @@
+
+var path     = require('path');
+
 var _options = {
 	encoding : 'utf8',
 	lang : "html", // html, asp, jsp, php 중 선택
@@ -11,6 +14,7 @@ var _options = {
 		dist   : "dist"
 	},
 	dir : {
+		"database"    : "db",
 		"html"        : "html",
 		"html-status" : "html-status",
 		"html-guide"  : "html-guide",
@@ -23,8 +27,6 @@ var _options = {
 }
 
 module.exports = function(grunt) {
-	var path = require('path');
-
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		path: _options.path,
@@ -52,26 +54,34 @@ module.exports = function(grunt) {
 		/* cmd 명령어 실행
 		 * https://github.com/jharding/grunt-exec
 		 */
-		exec: {
-			installBower: { cmd: "bower install" },
-			
+		shell: {
+			installBower: {
+				command: "bower install",
+				options:{} 
+			},
 			createFolder: { 
-				cmd: "cd " + __dirname,
-				callback : function(){
-					var dirs, i;
-
-					dirs = _options.dir;
-
-					// create dist Folder
-					grunt.file.mkdir(path.normalize(__dirname + "/" + _options.path.dist));
-					
-					// create source Folder
-					for(name in dirs){
-						var dir = dirs[name];
-						grunt.file.mkdir(path.normalize(__dirname + "/" + _options.path.source + "/" + dir));
+				command: "cd " + __dirname,
+				options: {
+					callback : function(){
+						var dirs, i;
+						
+						dirs = _options.dir;
+						
+						// create dist Folder
+						grunt.file.mkdir(path.normalize(__dirname + "/" + _options.path.dist));
+						
+						// create source Folder
+						for(name in dirs){
+							var dir = dirs[name];
+							grunt.file.mkdir(path.normalize(__dirname + "/" + _options.path.source + "/" + dir));
+						}
 					}
 				}
-			} // end - createFolder
+			},
+			mongod : {
+				command: "mongod --dbpath ./db",
+				options: { async: true }
+			}
 		},
 
 
@@ -80,11 +90,12 @@ module.exports = function(grunt) {
          */
 		imagemin: {
 			dist: {
+				// options: { optimizationLevel: 1 },
 				files: [{
 					expand: true,
-					cwd: '<%= path.source %>/images',
-					src: '{,*/}*.{gif,jpeg,jpg,png}',
-					dest: '<%= path.dist %>/images'
+					cwd: '<%= path.source %>/images/',
+					src: '**/*.{gif,png,jpg,jpeg}',
+					dest: '<%= path.dist %>/images/'
 				}]
 			}
         },
@@ -198,38 +209,35 @@ module.exports = function(grunt) {
 		},
 
 
-		// 서버 실행
-		// grunt connect:server:keepalive
-		// http://localhost:9000/index.html
-		connect: {
-            options: {
-            	livereload: true,
-            	hostname : 'localhost',
-                port: 9002
-            },
+		/* express server 실행
+		 * https://npmjs.org/package/grunt-express-server
+		 */ 
+		express: {
+			options: {
+				// Override defaults here
+			},
 			server: {
 				options: {
-					base: [
-						'<%= path.dist %>/html/',
-						'<%= path.dist %>'
-					],
-					open : "http://localhost:<%= connect.options.port %>/index.html"					
-				} // end - option
-			} // end - server
+					script: './server.js'
+				}
+			}
 		},
 
 
 		// 실시간 검사하기
-		watch: {
-            livereload: {
-	            options: { livereload: true },
+		watch: {            
+			express: {
                 files: [
 					'<%= path.dist %>/html/**/*.*',
 					'<%= path.dist %>/css/**/*.css',
 					'<%= path.dist %>/js/**/*.js',
 					'<%= path.dist %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
-                ]
-            },
+                ],
+				tasks:  ['express:server'],
+				options: {
+					spawn: true // Without this option specified express won't be reloaded
+				}
+			},
             
             resource: {
                 files: [
@@ -271,20 +279,17 @@ module.exports = function(grunt) {
 			isHTML        = filepath.indexOf("."  + _options.dir.html) !== -1,
 			isImage       = filepath.indexOf(path.normalize("/" + _options.dir.images  + "/")) !== -1;
 
-		console.log( '-----========-----', isIncludeFile, isHTML, isImage );
+		var srcAbsPath  = path.normalize(__dirname + "/" + filepath),
+			destAbsPath = path.normalize(__dirname + "/" + filepath.replace(_options.path.source, _options.path.dist));
 
 		if( isIncludeFile ){
-			console.log( '----- includeAll -----' );
 			includeAll();
 			
 		}else if( isHTML ){
-			var srcAbsPath  = path.normalize(__dirname + "/" + filepath),
-				destAbsPath = path.normalize(__dirname + "/" + filepath.replace(_options.path.source, _options.path.dist));
-			
 			include(srcAbsPath, destAbsPath);
 			
 		}else if( isImage ){
-			grunt.file.copy(srcpath, destpath);
+			grunt.file.copy(srcAbsPath, destAbsPath);
 		}
 	});
 	
@@ -341,16 +346,14 @@ module.exports = function(grunt) {
 
 
 	// 작업목록
-	grunt.registerTask('config',  ['clean:git', 'exec:createFolder', 'exec:installBower', 'copy:scaffolding']);
+	grunt.registerTask('config',  ['clean:git', 'shell:createFolder', 'shell:installBower', 'copy:scaffolding']);
 	
 	grunt.registerTask('compile', ['concat:dist', 'less:dist', 'uglify:dist', 'cssmin:dist']);
-	
 	grunt.registerTask('dist',    ['clean:dist', 'compile', 'copy:vender', 'imagemin:dist', 'copyHtml']);
-	grunt.registerTask('server',  ['connect:server', 'watch']);
+	grunt.registerTask('db',      ['shell:mongod']);
+	grunt.registerTask('server',  ['express:server', 'watch']);
 
-	grunt.registerTask('default', ['dist', 'connect:server', 'watch']);
-	
-	grunt.registerTask('test', []);
+	grunt.registerTask('default', ['dist', 'db', 'express:server', 'watch']);
 };
 
 
