@@ -1,5 +1,5 @@
 
-var path     = require('path');
+var path = require('path');
 
 var _options = {
 	encoding : 'utf8',
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
 		shell: {
 			installBower: {
 				command: "bower install",
-				options:{} 
+				options: { async: false } 
 			},
 			createFolder: { 
 				command: "cd " + __dirname,
@@ -90,12 +90,11 @@ module.exports = function(grunt) {
          */
 		imagemin: {
 			dist: {
-				// options: { optimizationLevel: 1 },
 				files: [{
 					expand: true,
-					cwd: '<%= path.source %>/images/',
+					cwd: 'source/images/',
 					src: '**/*.{gif,png,jpg,jpeg}',
-					dest: '<%= path.dist %>/images/'
+					dest: 'dist/images/'
 				}]
 			}
         },
@@ -144,6 +143,15 @@ module.exports = function(grunt) {
 				dest: '<%= path.dist %>/js/vender',
 				flatten: true,
 				filter: 'isFile'
+			},
+			
+			image : {
+				expand: true,
+				cwd: '<%= path.source %>/images',
+				src: ['**/*.{gif,png,jpg,jpeg}'],
+				dest: '<%= path.dist %>/images',
+				flatten: true,
+				filter: 'isFile'
 			}
 		},
 
@@ -187,7 +195,9 @@ module.exports = function(grunt) {
 		},
 
 
-		// less파일 -> css파일로변환
+		/* less파일 -> css파일로변환
+		 * https://github.com/gruntjs/grunt-contrib-less
+		 */
 		less: {
 			dist: {
 				files: {
@@ -349,7 +359,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('config',  ['clean:git', 'shell:createFolder', 'shell:installBower', 'copy:scaffolding']);
 	
 	grunt.registerTask('compile', ['concat:dist', 'less:dist', 'uglify:dist', 'cssmin:dist']);
-	grunt.registerTask('dist',    ['clean:dist', 'compile', 'copy:vender', 'imagemin:dist', 'copyHtml']);
+	grunt.registerTask('dist',    ['clean:dist', 'compile', 'copy:vender', 'copy:image', 'copyHtml']);
 	grunt.registerTask('db',      ['shell:mongod']);
 	grunt.registerTask('server',  ['express:server', 'watch']);
 
